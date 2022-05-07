@@ -1,0 +1,1144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Keyboard Interaction</title>
+<link rel="previous" href="input-mouse.html" title="Mouse Interaction">
+<link rel="next" href="language.html" title="Language">
+<link rel="top" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("admon-caution.png"); }
+div.important-inner { background-image: url("admon-important.png"); }
+div.note-inner { background-image: url("admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.tip-inner { background-image: url("admon-tip.png"); }
+div.warning-inner { background-image: url("admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<body>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="input-keyboard"><!--input-keyboard--></a><div class="header"><h1 class="sect1 title"><span class="title">Keyboard Interaction</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="input.html" title="User Input">User Input</a></li>
+</ul>
+<div class="autotoc"><ul>
+<li>
+<span class="label">10.2.1. </span><a class="xref" href="input-keyboard.html#keyboard-navigation" title="Keyboard Navigation">Keyboard Navigation</a>
+</li>
+<li>
+<span class="label">10.2.2. </span><a class="xref" href="input-keyboard.html#choosing-access-keys" title="Choosing Access Keys">Choosing Access Keys</a>
+</li>
+<li>
+<span class="label">10.2.3. </span><a class="xref" href="input-keyboard.html#shortcuts" title="Choosing Shortcut Keys">Choosing Shortcut Keys</a>
+</li>
+<li>
+<span class="label">10.2.4. </span><a class="xref" href="input-keyboard.html#standard-shortcuts" title="Standard Application Shortcut Keys">Standard Application Shortcut Keys</a>
+</li>
+<li>
+<span class="label">10.2.5. </span><a class="xref" href="input-keyboard.html#keynav-applets" title="Keyboard Interaction with Panel Applications (Applets)">Keyboard Interaction with Panel Applications (Applets)</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="keyboard-navigation"><!--keyboard-navigation--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.2.1. </span>Keyboard Navigation</span></h2></div>
+<p class="para block block-first">A well-designed keyboard user interface plays a key role when you are designing applications. Many power-users prefer to perform most operations with the keyboard rather than the mouse. Visually-impaired users can navigate software more effectively using the keyboard, because using the mouse depends on visual feedback of the mouse pointer location. And mobility impairments can prevent a user from successfully navigating using the mouse, because of the fine motor control skills required.</p>
+<p class="para block">Make all mouse actions available from the keyboard, and include keyboard access to all toolbars, menus, links and buttons. Every function your application provides must be available using the keyboard alone. Hiding your mouse while you test your application is a great way to test this!</p>
+<div class=" block figure block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 10-4</span> </span>Dialog and menu, with some of their access and shortcut keys indicated</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/input-accesskeys-shortcuts.png" width="497"></div>
+	</div>
+</div>
+<p class="para block">Most functionality is easy to make available from the keyboard, by using access keys and shortcut keys, and the toolkit's built-in keyboard navigation features. All controls with labels should have access keys, and frequently-used menu items should be assigned shortcut keys. However, operations that rely on drag-and-drop, for example, may require more thought to make them keyboard accessible.</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first"><span class="para">Provide efficient keyboard access to all application features. In particular, ensure every control on menus and in dialogs are directly focusable using access keys or shortcut keys.</span></li>
+<li><span class="para">Use a logical keyboard navigation order. When navigating around a window with the Tab key, keyboard focus should move between controls in a predictable order.  In Western locales, this is normally left to right and top to bottom.</span></li>
+<li><span class="para">Ensure correct tab order for controls whose enabled state is dependent on check box, radio button or toggle button state. When such a button is selected, all its dependent controls should be enabled, and all the dependent controls of any other button in the group should be disabled. When the user selects a check box, radio button or toggle button that has dependent controls, do not automatically give focus to the first dependent control, but instead leave the focus on the button.  
+</span></li>
+<li><span class="para">Do not over-ride existing system-level accessibility features. For example, the MouseKeys feature in the GNOME <span class="guilabel">Keyboard Accessibility</span> preferences dialog allows mouse movement and button clicks to be simulated using the keypad. Therefore you cannot add features to your application that can only be accessed by pressing keys on the keypad, as users relying on the MouseKeys feature will not be able to use them.</span></li>
+<li><span class="para">Ensure that any text that can be selected with the mouse can also be selected with the keyboard.  This is a convenience for all users, but especially for those for whom fine control of the mouse is difficult.</span></li>
+<li><span class="para">Ensure that objects that can be resized or moved by drag and drop can also be resized or moved with the keyboard. For example, icons and windows on the desktop. Where precision sizing and placement is potentially important, e.g. shapes in a diagram, also consider providing a dialog into which you can type co-ordinates, or a means of snapping objects to a user-definable grid.</span></li>
+<li><span class="para">Do not use general navigation functions to trigger operations. For example, do not use basic <span class="keycap">Tab</span> keyboard navigation in a dialog to activate any actions associated with a control.</span></li>
+<li><span class="para">Show keyboard-invoked menus, windows and tooltips near the object they relate to, but without hiding or obscuring the object to which the menu or tooltip refers,. In GNOME, popup menus are activated with <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">F10</span></span>, and tooltips with <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">F1</span></span>.</span></li>
+<li><span class="para">Provide more than one method to perform keyboard tasks where possible. Users may find some keys and key combinations easier to use than others.</span></li>
+<li><span class="para">Do not assign awkward reaches to frequently performed keyboard operations. Some people may only be able to use one hand on the keyboard, so shortcuts that can be easily used with one hand are preferable for common operations.  In any case, having to frequently perform long or difficult reaches on the keyboard can increase muscle strain for all users, increasing the risk of pain or injury.</span></li>
+<li><span class="para">Do not require repetitive use of simultaneous keypresses. Some users are only able to press and hold one key at a time. Assistive technologies such as the GNOME <span class="guilabel">Keyboard Accessibility</span> preferences dialog do allow users to press the keys sequentially rather than simultaneously, but this of course means the operation will take longer for them.</span></li>
+</ul>
+</div>
+</div>
+<div class="division sect2">
+<a name="choosing-access-keys"><!--choosing-access-keys--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.2.2. </span>Choosing Access Keys</span></h2></div>
+<p class="para block block-first">Give all labelled components an access key (underlined letter), with the exception of toolbar controls which would use up too many access key combinations.</p>
+<p class="para block">Choose access keys to be as easy to remember as possible.  Normally, this means using the first letter of the label.  However, in complex windows, the choice can become more difficult.  Here are some simple rules:</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first"><span class="para">Assign access keys to the most frequently-used controls first.  If it's not clear which controls will be the most frequently used, assign access keys from left to right, top to bottom (for Western locales).</span></li>
+<li><span class="para">Use the first letter of the label, or of one of its other words if it has more than one.  If another letter provides a better association (e.g. "x" in <span class="guilabel">Extra Large</span>) however, consider using that letter instead.</span></li>
+<li><span class="para">If the first letter is not available, choose an easy to remember consonant from the label, for example, "p" in <span class="guilabel">Replace</span>.</span></li>
+<li><span class="para">If no such consonants are available, choose any available vowel from the label.</span></li>
+</ol></div>
+<p class="para block">If duplication of access keys in a window is unavoidable, you should still refrain from duplicating the access keys for any of these buttons that appear in the same window: <span class="guibutton">OK</span>, <span class="guibutton">Cancel</span>, <span class="guibutton">Close</span>, <span class="guibutton">Apply</span> or <span class="guibutton">Help</span>.</p>
+<p class="para block">Also, it is better not to assign access keys to "thin" letters (such as lowercase i or l), or letters with descenders (such as lowercase g or y) unless it is unavoidable.  The underline does not show up very well on those characters in some fonts.</p>
+<p class="para block">Applications using a non-Roman writing system in conjunction with a standard keyboard can have control labels prefixed with Roman characters as access keys.</p>
+</div>
+<div class="division sect2">
+<a name="shortcuts"><!--shortcuts--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.2.3. </span>Choosing Shortcut Keys</span></h2></div>
+<p class="para block block-first">The tables in <a class="xref" href="input-keyboard.html#standard-shortcuts" title="Standard Application Shortcut Keys">Section 10.2.4 ― Standard Application Shortcut Keys</a> summarize the standard shortcut keys to use when your application supports those functions.  Your application will not necessarily support all of these functions, see <a class="xref" href="menus-standard.html" title="Standard Menus">Section 4.4 ― Standard Menus</a> for more information.  However, use the recommended shortcut keys for those functions you do support.</p>
+<p class="para block">You will probably want to add your own shortcut keys for functions specific to your application.  If so, as well as following the guidelines below, look at any other existing similar applications to see which shortcut keys they have defined.  Your users may already be using those or similar applications, so being consistent where it is possible and sensible to do so will provide a better user experience for them when they begin to use yours.</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first"><span class="para">Use <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">letter</span></span> in preference to other combinations when choosing new shortcut keys.</span></li>
+<li><span class="para"><span class="keycap">Insert</span>, <span class="keycap">Delete</span>, <span class="keycap">Home</span>, <span class="keycap">End</span>, <span class="keycap">Page Up</span> and <span class="keycap">Page Down</span> are acceptable shortcut keys for functions that are closely related to those keys' normal system-defined uses.  Do not assign them to unrelated functions just because you've run out of other shortcut key combinations, however.</span></li>
+<li><span class="para">Only assign shortcut keys to the most commonly-used actions in your application.  Do not try to assign a shortcut key to everything.</span></li>
+<li><span class="para">Choose new shortcut keys to be as mnemonic as possible, as these will be easier to learn and remember.  For example, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">E</span></span> would be a good shortcut for a menu item called <span class="guimenuitem">Edit Page</span>.</span></li>
+<li><span class="para">Use <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">letter</span></span> for functions that reverse or extend another function.  For example, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Z</span></span> and <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">Z</span></span> for <span class="guimenuitem">Undo</span> and <span class="guimenuitem">Redo</span>.
+	<div class="admonition block note block-indent"><div class="note-inner">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Unicode entry shortcuts</span></div>
+<p class="para block block-first">Note that you cannot use <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">A-thru-F</span></span> or <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">0-thru-9</span></span> for your own purposes, as these combinations are used to enter unicode characters in text fields.</p>
+</div></div>
+	</span></li>
+<li><span class="para">Do not use <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">number</span></span> or numbered function keys as shortcut keys, unless the number has some obvious relevance to the action.  For example, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">2</span></span> and <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">3</span></span> may be acceptable shortcut keys for <span class="menuchoice"><span class="guimenu">View</span> ▸ <span class="guimenuitem">2D View</span></span> and <span class="menuchoice"><span class="guimenu">View</span> ▸ <span class="guimenuitem">3D View</span></span> in a 3D modelling application.</span></li>
+<li><span class="para">Do not use <span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">key</span></span> combinations for shortcut keys, as these may conflict with window manager or menu access keys.</span></li>
+<li><span class="para">Do not use symbols that require <span class="keycap">Shift</span> or other modifiers as part of a shortcut, for example <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">%</span></span>.  Remember that symbols that can be accessed without a modifier key on your keyboard may be more difficult to access on different international keyboards.</span></li>
+<li><span class="para">Do not assign shortcut keys to menu items that change over time, for example a list of open windows on the <span class="guimenu">Window</span> menu, or a recently-used file list on the <span class="guimenu">File</span> menu.  Do assign access keys to these items, however.</span></li>
+<li><span class="para">Do not use any of the standard shortcut keys listed in <a class="xref" href="input-keyboard.html#standard-shortcuts" title="Standard Application Shortcut Keys">Section 10.2.4 ― Standard Application Shortcut Keys</a> for your own purposes,  even if your application doesn't support those functions.  This helps reinforce consistency between all GNOME applications.</span></li>
+</ul>
+</div>
+</div>
+<div class="division sect2">
+<a name="standard-shortcuts"><!--standard-shortcuts--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.2.4. </span>Standard Application Shortcut Keys</span></h2></div>
+<p class="para block block-first">If your application uses any of the standard functions listed in the following tables, use the recommended standard keyboard shortcut for that function.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-5</span> </span>Standard GNOME application shortcut keys and access keys - File menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - File menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">N</span>ew</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">N</span></span></td>
+<td style="text-align: left;">Create a new document</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">O</span>pen</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">O</span></span></td>
+<td style="text-align: left;">Open a document</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>ave</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">S</span></span></td>
+<td style="text-align: left;">Save the current document</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>rint</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">P</span></span></td>
+<td style="text-align: left;">Print the current document</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>lose</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">W</span></span></td>
+<td style="text-align: left;">Close the current document</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">Q</span>uit</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Q</span></span></td>
+<td style="text-align: left;">Quit the application</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-6</span> </span>Standard GNOME application shortcut keys and access keys - Edit menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - Edit menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">U</span>ndo</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Z</span></span></td>
+<td style="text-align: left;">Undo the last operation</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>edo</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">Z</span></span></td>
+<td style="text-align: left;">Redo the last operation</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Cu<span class="accel">t</span></span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">X</span></span></td>
+<td style="text-align: left;">Cut the selected area and store it in the clipboard</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>opy</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">C</span></span></td>
+<td style="text-align: left;">Copy the selected area into the clipboard</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>aste</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">V</span></span></td>
+<td style="text-align: left;">Paste contents of clipboard at mouse/cursor position</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">D</span>uplicate</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">U</span></span></td>
+<td style="text-align: left;">Duplicate the currently-selected items and add them to the same window, without affecting the clipboard</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Select <span class="accel">A</span>ll</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">A</span></span></td>
+<td style="text-align: left;">Select everything in focused control or window</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">In<span class="accel">v</span>ert Selection</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">I</span></span></td>
+<td style="text-align: left;">Select everything in focused control or window that was previously unselected, and deselect everything that was previously selected</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">D</span>elete</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycap">Del</span></td>
+<td style="text-align: left;">Delete selection</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>ind...</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">F</span></span></td>
+<td style="text-align: left;">Find matches in the current document, highlighting them in-place</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>earch...</span></td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">F</span></span> (see note below)</td>
+<td style="text-align: left;">Search for matches in multiple documents, files or other external sources</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Find Ne<span class="accel">x</span>t</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">G</span></span></td>
+<td style="text-align: left;">Find the next match</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>eplace...</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">H</span></span></td>
+<td style="text-align: left;">Find and replace matches</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">R<span class="accel">e</span>name</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycap">F2</span></td>
+<td style="text-align: left;">Switch the selected item's label into edit mode, allowing user to type in a new name.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition block note block-indent"><div class="note-inner">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Find and Search</span></div>
+		<p class="para block block-first">If your application requires both <span class="menuchoice"><span class="guimenu">Edit</span> ▸ <span class="guimenuitem">Find</span></span> and <span class="menuchoice"><span class="guimenu">Edit</span> ▸ <span class="guimenuitem">Search</span></span> menu items, use <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">F</span></span> as the shortcut for <span class="guimenuitem">Search</span>.</p>
+	</div></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-7</span> </span>Standard GNOME application shortcut keys and access keys - View menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - View menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Zoom <span class="accel">I</span>n</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">Plus</span></span></td>
+<td style="text-align: left;">Zoom in on the document </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Zoom <span class="accel">O</span>ut</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">Minus</span></span></td>
+<td style="text-align: left;">Zoom out of the document</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">N</span>ormal Size</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">0</span></span></td>
+<td style="text-align: left;">Restore to zoom level to normal size (generally 100%)</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>efresh</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">R</span></span></td>
+<td style="text-align: left;">Redraw current view of document, without checking if content has changed</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>eload</span></td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">R</span></span> (see note below)</td>
+<td style="text-align: left;">Reload the current document, updating content from source if necessary</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Pr<span class="accel">o</span>perties</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Enter</span></span></td>
+<td style="text-align: left;">Display the selected object's Properties window. May alternatively appear on the <span class="guimenu">File</span> menu if the document itself is the only object in the application whose properties can be inspected.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition block note block-indent"><div class="note-inner">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Reload and Refresh</span></div>
+		<p class="para block block-first">If your application requires both <span class="menuchoice"><span class="guimenu">View</span> ▸ <span class="guimenuitem">Reload</span></span> and <span class="menuchoice"><span class="guimenu">View</span> ▸ <span class="guimenuitem">Refresh</span></span> menu items, use <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">R</span></span> as the shortcut for <span class="guimenuitem">Reload</span>.</p>
+	</div></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-8</span> </span>Standard GNOME application shortcut keys and access keys - Bookmarks menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - Bookmarks menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Add <span class="accel">B</span>ookmark</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">D</span></span></td>
+<td style="text-align: left;">Add a bookmark for the current location</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">E</span>dit Bookmarks...</span></td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">B</span></span> (see note below)</td>
+<td style="text-align: left;">Open a window in which the user can edit and organise saved bookmarks</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition block note block-indent"><div class="note-inner">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Bold and Edit Bookmarks</span></div>
+		<p class="para block block-first">If your application requires both <span class="menuchoice"><span class="guimenu">Format</span> ▸ <span class="guimenuitem">Bold</span></span> and <span class="menuchoice"><span class="guimenu">Bookmarks</span> ▸ <span class="guimenuitem">Edit Bookmarks...</span></span> menu items, use <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">D</span></span> as the shortcut for <span class="guimenuitem">Edit Bookmarks</span>.</p>
+	</div></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-9</span> </span>Standard GNOME application shortcut keys and access keys - Go menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - Go menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">B</span>ack</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keysym" dir="ltr">Left</span></span></td>
+<td style="text-align: left;">Go to the previous location in the navigation chain</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Ne<span class="accel">x</span>t</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keysym" dir="ltr">Right</span></span></td>
+<td style="text-align: left;">Go to the next location in the navigation chain</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">U</span>p</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keysym" dir="ltr">Up</span></span></td>
+<td style="text-align: left;">Go up one level in the navigation hierarchy</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">H</span>ome</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keysym" dir="ltr">Home</span></span></td>
+<td style="text-align: left;">Go to the starting page defined by the user or application</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">L</span>ocation...</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">L</span></span></td>
+<td style="text-align: left;">Present or focus an entry field into which the user can type a new address or location to view</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-10</span> </span>Standard GNOME application shortcut keys and access keys - Format menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - Format menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">B</span>old</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">B</span></span></td>
+<td style="text-align: left;">Make selected text bold/regular</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">U</span>nderline</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">U</span></span></td>
+<td style="text-align: left;">Underline/remove underline from selected text</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">I</span>talic</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">I</span></span></td>
+<td style="text-align: left;">Make selected text italic/regular</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-11</span> </span>Standard GNOME application shortcut keys and access keys - Help menu</span></div>
+<table summary="Standard GNOME application shortcut keys and access keys - Help menu" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>ontents</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycap">F1</span></td>
+<td style="text-align: left;">Show help contents page for the current application</td>
+</tr></tbody>
+</table>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">10.2.4.1. </span><a class="xref" href="input-keyboard.html#window-manager-navigation" title="Standard Window Manager Shortcut Keys">Standard Window Manager Shortcut Keys</a>
+</li>
+<li>
+<span class="label">10.2.4.2. </span><a class="xref" href="input-keyboard.html#widget-navigation" title="Standard Widget Navigation Shortcut Keys">Standard Widget Navigation Shortcut Keys</a>
+</li>
+<li>
+<span class="label">10.2.4.3. </span><a class="xref" href="input-keyboard.html#additional-widget-navigation" title="Additional Widget Navigation Shortcut Keys">Additional Widget Navigation Shortcut Keys</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="window-manager-navigation"><!--window-manager-navigation--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.2.4.1. </span>Standard Window Manager Shortcut Keys</span></h3></div>
+<p class="para block block-first">The following shortcut keys are used by many window managers, and should not normally be over-ridden by your application.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-12</span> </span>Standard window manager shortcut keys and access keys</span></div>
+<table summary="Standard window manager shortcut keys and access keys" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Function</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">Switch primary windows</td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Tab</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Alt</span>+<span class="keycap">Tab</span></span>
+</td>
+<td style="text-align: left;">Switch focus to the next or previous top level window on the desktop</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Switch panels</td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Alt</span>+<span class="keycap">Tab</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">Alt</span>+<span class="keycap">Tab</span></span>
+</td>
+<td style="text-align: left;">Switch focus to the next or previous panel on the desktop</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">Log out</td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Alt</span>+<span class="keycap">Del</span></span></td>
+<td style="text-align: left;">Open the session logout confirmation dialog</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Window menu</td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Space</span></span></td>
+<td style="text-align: left;">Open the window menu</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>lose</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F4</span></span></td>
+<td style="text-align: left;">Close the focused window</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>estore</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F5</span></span></td>
+<td style="text-align: left;">Restore the focused to its previous size</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>witch secondary windows</span></td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F6</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Alt</span>+<span class="keycap">F6</span></span>
+</td>
+<td style="text-align: left;">Switch focus to the next or previous secondary window associated with the application ()</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">M</span>ove</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F7</span></span></td>
+<td style="text-align: left;">Move the focused window</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Re<span class="accel">s</span>ize</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F8</span></span></td>
+<td style="text-align: left;">Resize the focused window</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Mi<span class="accel">n</span>imize</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F9</span></span></td>
+<td style="text-align: left;">Minimze the focused window</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem">Ma<span class="accel">x</span>imize</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">F10</span></span></td>
+<td style="text-align: left;">Maximize the focused window</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>ull Screen</span></td>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">F11</span></span></td>
+<td style="text-align: left;">Show the window in full screen mode, with no border, menubar, toolbar or statusbar</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<a name="widget-navigation"><!--widget-navigation--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.2.4.2. </span>Standard Widget Navigation Shortcut Keys</span></h3></div>
+<p class="para block block-first">The following shortcut keys are reserved for keyboard navigation use by the various widgets used in GNOME, and should not normally be over-ridden by your application.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-13</span> </span>Standard GNOME keyboard navigation keys for widgets</span></div>
+<table summary="Standard GNOME keyboard navigation keys for widgets" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Key</th>
+<th style="text-align: left;">Function</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycap">Tab</span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Tab</span></span>
+</td>
+<td style="text-align: left;">Moves keyboard focus to next/previous control</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Tab</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">Tab</span></span>
+</td>
+<td style="text-align: left;">Moves keyboard focus out of enclosing widget to next/previous control, in those situations where Tab alone has another function (e.g. GtkTextView)</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">F1</span></span></td>
+<td style="text-align: left;">Pop up tooltip for currently-focused control</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">F1</span></span></td>
+<td style="text-align: left;">Show context-sensitive help for currently-focused window or control</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycap">F6</span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">F6</span></span>
+</td>
+<td style="text-align: left;">Give focus to next/previous pane in a GtkPaned window</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycap">F8</span></td>
+<td style="text-align: left;">Give focus to splitter bar in paned window</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycap">F10</span></td>
+<td style="text-align: left;">Give focus to window's menu bar</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">F10</span></span></td>
+<td style="text-align: left;">Pop up contextual menu for currently-selected objects</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keysym" dir="ltr">Space</span></td>
+<td style="text-align: left;">Toggle selected state of focused check box, radio button, or toggle button</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keysym" dir="ltr">Return</span></td>
+<td style="text-align: left;">Activate focused button, menu item etc.</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycap">Home</span>, <span class="keycap">End</span>
+</td>
+<td style="text-align: left;">Select/move to first item in selected widget</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">
+<span class="keycap">PageUp</span>, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">PageUp</span></span>, <span class="keycap">PageDown</span>, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">PageDown</span></span>
+</td>
+<td style="text-align: left;">Scroll selected view by one page up/left/down/right</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<a name="additional-widget-navigation"><!--additional-widget-navigation--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.2.4.3. </span>Additional Widget Navigation Shortcut Keys</span></h3></div>
+<p class="para block block-first">The following emacs-style navigation shortcut keys are still available in GNOME 2.0 text entry fields (by selecting the "emacs" scheme in the GNOME <span class="guilabel">Keyboard Shortcuts</span> preferences dialog), but are disabled by default.  Since some users will still want to use them, do not over-ride them for your own purposes in any situations where a text entry control has focus.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-14</span> </span>Emacs-style navigation keys for widgets</span></div>
+<table summary="Emacs-style navigation keys for widgets" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Key</th>
+<th style="text-align: left;">Function</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">A</span></span></td>
+<td style="text-align: left;">Move cursor to beginning of line</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">D</span></span></td>
+<td style="text-align: left;">Delete character following/under cursor</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">E</span></span></td>
+<td style="text-align: left;">Move cursor to end of line</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">K</span></span></td>
+<td style="text-align: left;">Delete from cursor to end of line</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">U</span></span></td>
+<td style="text-align: left;">Delete current line</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">W</span></span></td>
+<td style="text-align: left;">Cut to clipboard</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Y</span></span></td>
+<td style="text-align: left;">Paste from clipboard</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">Space</span></span></td>
+<td style="text-align: left;">Set mark</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Del</span></span>, <span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">D</span></span>
+</td>
+<td style="text-align: left;">Delete from cursor to end of word</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">Backspace</span></span></td>
+<td style="text-align: left;">Delete from cursor to start of word</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keysym" dir="ltr">Space</span></span></td>
+<td style="text-align: left;">Delete all whitespace around cursor, reinsert single space</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">\</span></span></td>
+<td style="text-align: left;">Delete all whitespace around cursor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="division sect2">
+<a name="keynav-applets"><!--keynav-applets--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.2.5. </span>Keyboard Interaction with Panel Applications (Applets)</span></h2></div>
+<p class="para block block-first">Panels have been fully keyboard navigable since GNOME 2.0.  Since your panel application can gain keyboard focus, you must ensure that it is also keyboard navigable.</p>
+<p class="para block">The rules for panel application keyboard navigation are mostly the same as those for any other window.  However, there is one imporant difference:</p>
+<div class="block list itemizedlist"><ul class="itemizedlist"><li class="li-first"><span class="para">Do <span class="emphasis">not</span> use the the <span class="keycap">Tab</span> key as the means of moving focus between controls in a panel application.  Use the arrow keys for this purpose instead.</span></li></ul></div>
+<p class="para block">When an object on a panel has focus, the <span class="keycap">Tab</span> key normally moves focus to the next object on the panel.  If your panel application also used <span class="keycap">Tab</span> for its own internal navigation, the user would have to press <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Tab</span></span> to move focus out of your panel application instead.  This inconsistency would be detremental to the user experience.</p>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="input-mouse.html" title="Mouse Interaction">Mouse Interaction</a></td>
+<td class="navbar-next"><a class="navbar-next" href="language.html" title="Language">Language</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a><div class="autotoc"><ul>
+<li><a class="xref" href="whatsnew.html" title="What's new?">What's new?</a></li>
+<li><a class="xref" href="intro.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="principles.html" title="Usability Principles">Usability Principles</a></li>
+<li><a class="xref" href="desktop-integration.html" title="Desktop Integration">Desktop Integration</a></li>
+<li><a class="xref" href="windows.html" title="Windows">Windows</a></li>
+<li><a class="xref" href="menus.html" title="Menus">Menus</a></li>
+<li><a class="xref" href="toolbars.html" title="Toolbars">Toolbars</a></li>
+<li><a class="xref" href="controls.html" title="Controls">Controls</a></li>
+<li><a class="xref" href="feedback.html" title="Feedback">Feedback</a></li>
+<li><a class="xref" href="design.html" title="Visual Design">Visual Design</a></li>
+<li><a class="xref" href="icons.html" title="Icons">Icons</a></li>
+<li>
+<a class="xref" href="input.html" title="User Input">User Input</a><div class="autotoc"><ul>
+<li><a class="xref" href="input-mouse.html" title="Mouse Interaction">Mouse Interaction</a></li>
+<li>Keyboard Interaction</li>
+</ul></div>
+</li>
+<li><a class="xref" href="language.html" title="Language">Language</a></li>
+<li><a class="xref" href="reality-checks.html" title="Checklists">Checklists</a></li>
+<li><a class="xref" href="credits.html" title="Credit">Credit</a></li>
+<li><a class="xref" href="bibliography.html" title="Bibliography">Bibliography</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://bugzilla.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://git.gnome.org/browse/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://identi.ca/gnome/">Identi.ca</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="/languages" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="/js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

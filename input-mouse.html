@@ -1,0 +1,877 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mouse Interaction</title>
+<link rel="previous" href="input-mouse.html" title="Mouse Interaction">
+<link rel="next" href="input-keyboard.html" title="Keyboard Interaction">
+<link rel="top" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("admon-caution.png"); }
+div.important-inner { background-image: url("admon-important.png"); }
+div.note-inner { background-image: url("admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.tip-inner { background-image: url("admon-tip.png"); }
+div.warning-inner { background-image: url("admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<body>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="input-mouse"><!--input-mouse--></a><div class="header"><h1 class="sect1 title"><span class="title">Mouse Interaction</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="input.html" title="User Input">User Input</a></li>
+</ul>
+<div class="autotoc"><ul>
+<li>
+<span class="label">10.1.1. </span><a class="xref" href="input-mouse.html#mouse-buttons" title="Buttons">Buttons</a>
+</li>
+<li>
+<span class="label">10.1.2. </span><a class="xref" href="input-mouse.html#selection" title="Selecting Objects">Selecting Objects</a>
+</li>
+<li>
+<span class="label">10.1.3. </span><a class="xref" href="input-mouse.html#drag-drop" title="Drag and Drop">Drag and Drop</a>
+</li>
+<li>
+<span class="label">10.1.4. </span><a class="xref" href="input-mouse.html#mouse-interaction-applets" title="Mouse Interaction with Panel Applications (Applets)">Mouse Interaction with Panel Applications (Applets)</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="mouse-buttons"><!--mouse-buttons--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.1.1. </span>Buttons</span></h2></div>
+<div class=" block figure block-first block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 10-1</span> </span>A plethora of pointing devices: mouse, trackball, foot-operated mouse, joystick, trackpad, and a finger-mounted pointing device.</span></div>
+<div class="figure-inner"> 
+	  <div class="mediaobject"><img src="images/input-pointing-devices.png" width="480"></div>
+	</div>
+</div>
+<p class="para block">For most users, the mouse provides the main way of interacting with graphical user interfaces.  The term "mouse" is used in this chapter to include other pointing devices that can be used to move the pointer around the screen, such as trackballs, trackpads, spaceballs, graphics tablets, or assistive technology devices that emulate a mouse.</p>
+<p class="para block">For right-handed users, the left button on a conventional mouse is used for the majority of mouse actions. We therefore call it the <span class="mousebutton">left button</span> here, even though that may not physically be the case.  For this reason, you may sometimes see this button referred to in code or documentation as "Button 1" or the "Selection Button".</p>
+<p class="para block">Similarly for right-handed users, the right button on a conventional mouse is used for operations involving pop-up menus. We therefore call it the <span class="mousebutton">right button</span> in this chapter.  You may sometimes see this button referred to in code or documentation as "Button 3" or the "Menu Button".</p>
+<p class="para block">A conventional mouse with three buttons normally has its third button (or a scrollwheel that acts as a button when pushed) between the left and right buttons.  We therefore call it the <span class="mousebutton">middle button</span>, but you may sometimes see this referred to in code or documentation as "Button 2" or the "Transfer Button".</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first"><p class="para block block-first">Your application uses left button gestures for selecting, activating components, dragging, and the display of drop-down menus.</p></li>
+<li><p class="para block block-first">Your application uses right button gestures to display and select actions from a popup menu.</p></li>
+<li>
+<p class="para block block-first">Your application uses the middle button to paste the current PRIMARY (usually the last-highlighted) selection at the pointer position, as follows:</p>
+	    
+	    <div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-1</span> </span>Effect of modifier keys on a <span class="mousebutton">middle button</span> transfer operation</span></div>
+<table summary="Effect of modifier keys on a middle button transfer operation" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Modifier</th>
+<th style="text-align: left;">Function</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">Unmodified</td>
+<td style="text-align: left;">Copy selection</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycap">Ctrl</span></td>
+<td style="text-align: left;">Copy selection</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycap">Shift</span></td>
+<td style="text-align: left;">Move selection</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span></span></td>
+<td style="text-align: left;">Create link, shortcut or alias to selection</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+	<p class="para block">Do not over-ride this functionality in any part of your user interface where the transfer action is likely to be useful.  If you do intend to use the middle button for a different purpose somewhere, only do so as a shortcut for experienced users, and only for operations that can also be performed without using the <span class="mousebutton">right button</span> or <span class="mousebutton">middle button</span>.</p>
+</li>
+<li><p class="para block block-first">If present on the mouse, the scrollwheel should scroll the window or control under the pointer, if it supports scrolling. Initiating scrolling in this way should not move keyboard focus to the window or control being scrolled. </p></li>
+<li><p class="para block block-first"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="mousebutton">scrollwheel-up</span></span> should zoom into the window or control under the mouse pointer, and <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="mousebutton">scrollwheel-down</span></span> should zoom out.  Zooming in this way should not move keyboard focus to the window or control being zoomed.</p></li>
+<li><p class="para block block-first">Do not depend on input from the middle or right mouse buttons. As well as being physically more difficult to click, some pointing devices and many assistive technology devices only support or emulate the left mouse button.  Some assistive technologies may noteven emulate the mouse at all, but generate keyboard events instead.</p></li>
+<li><p class="para block block-first">Ensure that every operation in your application that can be done with the mouse can also be done with the keyboard.  The only exceptions to this are actions where fine motor control is an essential part of the task. For example, controlling movement in some types of action games, or freehand painting in an image-editing application.</p></li>
+<li><p class="para block block-first">Do not warp the mouse pointer, or restrict mouse movement to part of the screen. This can interfere with assistive technologies, and is usually confusing even for users who do not rely on assistive technologies.</p></li>
+<li><p class="para block block-first">Do not require the use of chording (pressing multiple mouse buttons simultaneously) for any operations.</p></li>
+<li><p class="para block block-first">Do not require the use of multiple (triple- or quadruple-) clicking actions for any operations, unless you also provide an accessible alternative method of performing the same action.</p></li>
+<li><p class="para block block-first">Allow all mouse operations to be cancelled before their completion. Pressing the Esc key should cancel any mouse operation in progress, such as dragging and dropping a file in a file manager, or drawing a shape in a drawing application.</p></li>
+<li><p class="para block block-first">Do not assign any actions exclusively to the middle button of a three-button mouse, as not all mice have one.</p></li>
+<li><p class="para block block-first">Do not hard-code mouse target sizes, or make them too small. Define any mouse targets to be at least as large as the arrow button in a GtkSpinBox in the current gtk theme. Bear in mind that a user with impaired dexterity or vision may be using a theme that results in considerably larger widgets than the default theme.</p></li>
+<li><p class="para block block-first">Do not refer to particular mouse buttons in your interface unless absolutely necessary.  Not everybody will be using a conventional mouse with left, middle and right buttons, so any text or diagrams that refer to those may be confusing.</p></li>
+</ul>
+</div>
+</div>
+<div class="division sect2">
+<a name="selection"><!--selection--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.1.2. </span>Selecting Objects</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">10.1.2.1. </span><a class="xref" href="input-mouse.html#mouse-keyboard-equivalents" title="Mouse and keyboard equivalents">Mouse and keyboard equivalents</a>
+</li>
+<li>
+<span class="label">10.1.2.2. </span><a class="xref" href="input-mouse.html#bounding-box-selection" title="Bounding Box Selection">Bounding Box Selection</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="mouse-keyboard-equivalents"><!--mouse-keyboard-equivalents--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.1.2.1. </span>Mouse and keyboard equivalents</span></h3></div>
+<p class="para block block-first">For controls or windows that contain a number of objects that the
+user can select, either singly or multiply, ensure the following mechanisms are in place to allow selections to be made using either the mouse or the keyboard.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-2</span> </span>Standard mouse and keyboard selection mechanisms</span></div>
+<table summary="Standard mouse and keyboard selection mechanisms" style="border: solid 1px;" class="table-pgwide">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep"></th>
+<th style="text-align: left;" class="td-colsep">Mouse</th>
+<th style="text-align: left;">Keyboard</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">Select item, deselect all others</td>
+<td style="text-align: left;" class="td-colsep">Click</td>
+<td style="text-align: left;"><span class="keysym" dir="ltr">Space</span></td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Add/remove item from selection</td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycap">Ctrl</span> click (toggles item's selected state)</td>
+<td style="text-align: left;">
+<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">Space</span></span> (toggles focused item's selected state)</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">Extend selection</td>
+<td style="text-align: left;" class="td-colsep">
+<span class="keycap">Shift</span> click</td>
+<td style="text-align: left;">
+<span class="keycombo"><span class="keycap">Shift</span>+<span class="keysym" dir="ltr">Space</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Home</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">End</span></span>, <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">PageUp</span></span>, or <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">PageDown</span></span>
+</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Move focus</td>
+<td style="text-align: left;" class="td-colsep">Click appropriate item to select it</td>
+<td style="text-align: left;">Cursor keys, <span class="keycap">Home</span>, <span class="keycap">End</span>, <span class="keycap">PageUp</span>, and <span class="keycap">PageDown</span> move focus and selection simultaneously.
+		<p class="para block"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">cursor keys</span></span>, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Home</span></span>,<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">End</span></span>, <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">PageUp</span></span>, and <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">PageDown</span></span> move focus without affecting current selection.</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">Select All</td>
+<td style="text-align: left;" class="td-colsep">Click first item, then <span class="keycap">Shift</span> click last item</td>
+<td style="text-align: left;"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">A</span></span></td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Deselect All</td>
+<td style="text-align: left;" class="td-colsep">Click container background</td>
+<td style="text-align: left;"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">A</span></span></td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">Activate selection</td>
+<td style="text-align: left;" class="td-colsep">Double-click to activate a single selection.  <span class="keycap">Shift</span> or <span class="keycap">Ctrl</span> double-clicking extends or adds item to selection first before activating the entire selection.</td>
+<td style="text-align: left;">
+<span class="keysym" dir="ltr">Return</span> activates entire selection.  If nothing is currently selected, selects currently-focused item first.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Invert Selection</td>
+<td style="text-align: left;" class="td-colsep">No mouse equivalent</td>
+<td style="text-align: left;"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">I</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<a name="bounding-box-selection"><!--bounding-box-selection--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.1.2.2. </span>Bounding Box Selection</span></h3></div>
+<p class="para block block-first">For a container whose objects may be arranged in two dimensions, for example the icon view in a file manager, allow multiple selection by dragging a bounding box (sometimes called a "rubber band") around one or more objects.  <span class="keycombo"><span class="keycap">Shift </span>+<span class="mousebutton">left button</span></span> <span class="action">drag</span> should add all the objects within the bounding box to the existing selection.  <span class="keycombo"><span class="keycap">Ctrl </span>+<span class="mousebutton">left button</span></span> <span class="action">drag</span> should toggle the selected state of all the objects within the bounding box.</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+<p class="para block block-first">Allow a bounding box selection to begin only if the initial mouse button press is made:</p>
+		
+			<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">Within the bounds of the container's background, and</span></li>
+<li><span class="para">outside the bounds of any another object in the same container that can be dragged.</span></li>
+</ul></div>
+			
+		<p class="para block">In a drawing application, for example, this means that a bounding box click and drag could start on a blank area of the canvas, or within a shape that had been locked down to prevent accidental editing, but not in an active shape which would itself be dragged instead.</p>
+</li>
+<li><p class="para block block-first">Select any objects that lie wholly or partly within the bounding box when the mouse button is released. </p></li>
+<li><p class="para block block-first">Use dynamic highlighting during the drag to show which objects will be selected.  Do not wait until the mouse button is released.  This avoids any uncertainty about which objects will be selected by the bounding box.</p></li>
+<li><p class="para block block-first">When a bounding box is being dragged out within a scrollable window, support automatic scrolling of that window when the box is dragged near the window's edges.</p></li>
+</ul>
+</div>
+<div class=" block figure block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 10-2</span> </span>Examples illustrating dynamic selection highlighting during bounding box selection.  In the first example, the folder color and label highlighting changes to indicate selection.  In the second, selection is indicated by the addition of resizing handles to selected objects.</span></div>
+<div class="figure-inner"> 
+	  <div class="mediaobject"><img src="images/input-drag-select-files.png" width="509"></div>
+
+	  <div class="mediaobject"><img src="images/input-drag-select-graphics.png" width="598"></div>
+	  
+	</div>
+</div>
+</div>
+</div>
+<div class="division sect2">
+<a name="drag-drop"><!--drag-drop--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.1.3. </span>Drag and Drop</span></h2></div>
+<p class="para block block-first">Drag and drop is a direct manipulation technique, where you perform actions on selected objects by moving them around the screen with the mouse.  You "drag" an object by clicking it, then holding the button while you move the pointer to the object's target location.  The object is "dropped" at that location by releasing the mouse button.</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+<p class="para block block-first">Use drag and drop only where the user can reasonably guess what the effect might be.  The most common uses are:</p>
+		<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">to move or copy objects from one place to another</span></li>
+<li><span class="para">to link one object to another</span></li>
+<li><span class="para">to perform an action on the objects by dropping them onto an icon representing that action, such as a trash can or printer icon.</span></li>
+</ul></div>
+	</li>
+<li><p class="para block block-first">Provide visual feedback throughout a drag and drop operation. Highlight valid targets and change the mouse pointer as it passes over them.  Use the "no drop" mouse pointer when passing over invalid drop targets. See also <a class="xref" href="input-mouse.html#drag-drop-pointers" title="Mouse Pointers to Use for Drag and Drop">Section 10.1.3.2 ― Mouse Pointers to Use for Drag and Drop</a>.</p></li>
+<li>
+<p class="para block block-first">Augment the mouse pointer with a representation of the objects being dragged.  Keep this representation small or make it translucent, so as not to obscure possible drop targets underneath it. See also <a class="xref" href="input-mouse.html#drag-drop-pointers" title="Mouse Pointers to Use for Drag and Drop">Section 10.1.3.2 ― Mouse Pointers to Use for Drag and Drop</a>.</p>
+
+		<div class=" block figure block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 10-3</span> </span>Example of copy pointer augmented by an icon representing the file being copied</span></div>
+<div class="figure-inner">
+		
+		<div class="mediaobject"><img src="images/input-drag-cursor.png" width="101"></div>
+		</div>
+</div>
+	  
+	    	
+	</li>
+<li><p class="para block block-first">Only allow objects to be copied between applications, not moved.  This avoids any confusion about which application's <span class="guimenuitem">Undo</span> function reverses the operation.</p></li>
+<li>
+<p class="para block block-first">Allow the user to cancel a drag and drop operation by all of these methods:</p> 
+		<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">pressing <span class="keycap">Esc</span> before releasing the mouse button</span></li>
+<li><span class="para">dropping the object back on its original location</span></li>
+<li><span class="para">performing a <span class="action">query drag</span> and selecting <span class="guimenuitem">Cancel</span> on the pop-up menu (see <a class="xref" href="input-mouse.html#drag-drop-query" title="Query Drag">Section 10.1.3.1.2 ― Query Drag</a>)</span></li>
+<li><span class="para">dropping the object on an invalid drop target.</span></li>
+</ul></div>
+	</li>
+<li><p class="para block block-first">Allow the user to undo the effects a drag and drop operation by selecting <span class="menuchoice"><span class="guimenu">Edit</span> ▸ <span class="guimenuitem">Undo</span></span>.</p></li>
+<li><p class="para block block-first">Allow multiple objects to be dragged by <span class="keycap">Shift</span> or <span class="keycap">Ctrl</span> selecting them, then dragging any one of the selected objects.</p></li>
+<li><p class="para block block-first">Ensure that keyboard users can replicate all drag and drop actions using only menu items or keyboard shortcuts, such as <span class="guimenuitem">Copy</span> (<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">C</span></span>) and <span class="guimenuitem">Paste</span> (<span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">V</span></span>).</p></li>
+<li><p class="para block block-first">When an item is being dragged within or into a scrollable window, support automatic scrolling of that window when the mouse is moved near its edges.</p></li>
+<li><p class="para block block-first">Pop up a menu when the user attemps to drop multiple objects on a target that only accepts single objects.  On the menu, list all the objects being dragged, and a <span class="guimenuitem">Cancel</span> item.</p></li>
+</ul>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">10.1.3.1. </span><a class="xref" href="input-mouse.html#drag-drop-override" title="Overriding drag and drop behavior">Overriding drag and drop behavior</a>
+</li>
+<li>
+<span class="label">10.1.3.2. </span><a class="xref" href="input-mouse.html#drag-drop-pointers" title="Mouse Pointers to Use for Drag and Drop">Mouse Pointers to Use for Drag and Drop</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="drag-drop-override"><!--drag-drop-override--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.1.3.1. </span>Overriding drag and drop behavior</span></h3></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">10.1.3.1.1. </span><a class="xref" href="input-mouse.html#drag-drop-modifiers" title="Keyboard Modifiers">Keyboard Modifiers</a>
+</li>
+<li>
+<span class="label">10.1.3.1.2. </span><a class="xref" href="input-mouse.html#drag-drop-query" title="Query Drag">Query Drag</a>
+</li>
+</ul></div>
+<div class="division sect4">
+<a name="drag-drop-modifiers"><!--drag-drop-modifiers--></a><div class="header"><h4 class="sect4 title"><span class="title"><span class="label">10.1.3.1.1. </span>Keyboard Modifiers</span></h4></div>
+<p class="para block block-first">Allow the user to force the behavior of a drag and drop operation by holding the <span class="keycap">Ctrl</span>, <span class="keycap">Shift</span> or both keys throughout.  If the user changes modifier keys after they have started the drag, change the mouse pointer immediately and perform the new action when the mouse button is released.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-3</span> </span>Effect of modifier keys during a drag and drop operation</span></div>
+<table summary="Effect of modifier keys during a drag and drop operation" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Modifier</th>
+<th style="text-align: left;">Function</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycap">Ctrl</span></td>
+<td style="text-align: left;">Copy</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep"><span class="keycap">Shift</span></td>
+<td style="text-align: left;">Move</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span></span></td>
+<td style="text-align: left;">Create link, shortcut or alias</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect4">
+<a name="drag-drop-query"><!--drag-drop-query--></a><div class="header"><h4 class="sect4 title"><span class="title"><span class="label">10.1.3.1.2. </span>Query Drag</span></h4></div>
+<p class="para block block-first">Allow the user to drag objects with the <span class="mousebutton">middle button </span>, or with <span class="keycap">Alt</span><span class="mousebutton"> left button</span>. Pop up a menu when the mouse button is released, offering the choice of <span class="guimenuitem">Copy</span>, <span class="guimenuitem">Move</span> and <span class="guimenuitem">Link</span> (or whichever subset of those actions is available), and <span class="guimenuitem">Cancel</span>.  Dragging in this way is known as <span class="action">query drag</span> because it prompts the user before changing anything.</p>
+</div>
+</div>
+<div class="division sect3">
+<a name="drag-drop-pointers"><!--drag-drop-pointers--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">10.1.3.2. </span>Mouse Pointers to Use for Drag and Drop</span></h3></div>
+<p class="para block block-first">Use the default GTK drag and drop pointers for the standard transfer operations listed below.  This consistency helps ensure the user will know exactly what to expect when they release the mouse button.  If you have to design a pointer for a non-standard transfer action not listed here, follow the style of the standard pointers.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 10-4</span> </span>Mouse Pointers for Drag and Drop</span></div>
+<table summary="Mouse Pointers for Drag and Drop" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Pointer Shape</th>
+<th style="text-align: left;">Meaning</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+	            <div class="mediaobject"><img src="images/input-drag-cursor-move.png" width="31"></div>
+                  </td>
+<td style="text-align: left;">Move selection. The dragged selection will be moved to the drop location, removing it from its previous location.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">
+                    <div class="mediaobject"><img src="images/input-drag-cursor-copy.png" width="33"></div>
+                  </td>
+<td style="text-align: left;">Copy selection.  The dragged selection will be copied to the drop location, leaving the original intact.</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+                    <div class="mediaobject"><img src="images/input-drag-cursor-link.png" width="37"></div>
+                  </td>
+<td style="text-align: left;">Link selection.  A link to the selection will be inserted at the drop location.  How the link appears will be application-dependent, it may be a hyperlink, an icon, or a duplicate of the orignal selection, for example.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">
+                    <div class="mediaobject"><img src="images/input-drag-cursor-query.png" width="28"></div>
+                   </td>
+<td style="text-align: left;">Middle button or Alt-left button drag.  A pop-up menu will be posted at the drop location to ask whether the user wants to Move, Copy, or Link the selection, or Cancel the operation.</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">
+                     <div class="mediaobject"><img src="images/input-drag-cursor-nodrop.png" width="28"></div>
+</td>
+<td style="text-align: left;">Can't drop here.  Show this pointer while the mouse is over an area where the selection cannot be dropped.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="division sect2">
+<a name="mouse-interaction-applets"><!--mouse-interaction-applets--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">10.1.4. </span>Mouse Interaction with Panel Applications (Applets)</span></h2></div>
+<p class="para block block-first">All objects on the desktop must behave consistently.  Despite their specialized nature, applets are no exception.</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+<p class="para block block-first">The unmodified left mouse button must be sufficient to operate all your applet's controls.  Applets are meant to be simple enough that modified clicking, or clicking with other mouse buttons (except to pop up the applet's menu) is never required.</p>
+	      </li>
+<li><p class="para block block-first">Clicking the right button <span class="emphasis">anywhere</span> within the applet's enclosing window must display either the popup menu for the whole applet, or the popup menu for the control under the mouse pointer.  Do not have "dead areas" in your applet that do not respond to a right click.</p></li>
+<li>
+<p class="para block block-first">Do not use the middle button for anything except dragging the applet to a new location.  Middle-clicking and dragging anywhere within the applet window must move the applet, do not require a drag bar or similar device.</p>
+		<p class="para block"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="mousebutton">left button</span></span> <span class="action">drag</span> should copy the applet, if moving to another panel; unmodified drag or <span class="keycombo"><span class="keycap">Shift</span>+<span class="mousebutton">left button</span></span> <span class="action">drag</span> should move the applet, if moving to another panel.  If moving within same panel, <span class="keycap">Ctrl</span>=switched movement, <span class="keycap">Shift</span>=push movement, <span class="keycap">Alt</span>=free movement.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="input-mouse.html" title="Mouse Interaction">Mouse Interaction</a></td>
+<td class="navbar-next"><a class="navbar-next" href="input-keyboard.html" title="Keyboard Interaction">Keyboard Interaction</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a><div class="autotoc"><ul>
+<li><a class="xref" href="whatsnew.html" title="What's new?">What's new?</a></li>
+<li><a class="xref" href="intro.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="principles.html" title="Usability Principles">Usability Principles</a></li>
+<li><a class="xref" href="desktop-integration.html" title="Desktop Integration">Desktop Integration</a></li>
+<li><a class="xref" href="windows.html" title="Windows">Windows</a></li>
+<li><a class="xref" href="menus.html" title="Menus">Menus</a></li>
+<li><a class="xref" href="toolbars.html" title="Toolbars">Toolbars</a></li>
+<li><a class="xref" href="controls.html" title="Controls">Controls</a></li>
+<li><a class="xref" href="feedback.html" title="Feedback">Feedback</a></li>
+<li><a class="xref" href="design.html" title="Visual Design">Visual Design</a></li>
+<li><a class="xref" href="icons.html" title="Icons">Icons</a></li>
+<li>
+<a class="xref" href="input.html" title="User Input">User Input</a><div class="autotoc"><ul>
+<li>Mouse Interaction</li>
+<li><a class="xref" href="input-keyboard.html" title="Keyboard Interaction">Keyboard Interaction</a></li>
+</ul></div>
+</li>
+<li><a class="xref" href="language.html" title="Language">Language</a></li>
+<li><a class="xref" href="reality-checks.html" title="Checklists">Checklists</a></li>
+<li><a class="xref" href="credits.html" title="Credit">Credit</a></li>
+<li><a class="xref" href="bibliography.html" title="Bibliography">Bibliography</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://bugzilla.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://git.gnome.org/browse/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://identi.ca/gnome/">Identi.ca</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="/languages" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="/js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

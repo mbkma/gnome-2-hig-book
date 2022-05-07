@@ -1,0 +1,1150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Alerts</title>
+<link rel="previous" href="windows-utility.html" title="Utility Windows">
+<link rel="next" href="windows-progress.html" title="Progress Windows">
+<link rel="top" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("admon-caution.png"); }
+div.important-inner { background-image: url("admon-important.png"); }
+div.note-inner { background-image: url("admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.tip-inner { background-image: url("admon-tip.png"); }
+div.warning-inner { background-image: url("admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<body>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="windows-alert"><!--windows-alert--></a><div class="header"><h1 class="sect1 title"><span class="title">Alerts</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="windows.html" title="Windows">Windows</a></li>
+</ul>
+<p class="para block block-first">An alert provides information about the state of the application
+    system, or asks for essential information about how to proceed with a
+    particular task. It is distinct from other types of window in that it is
+    not directly requested by the user, and usually contains a message or a
+    question rather than editable controls. Since alerts are an unwelcome
+    intrusion into the user's work, do not use them except where necessary
+    to avoid potential data loss or other serious problems.</p>
+<p class="para block">
+ 	An alert has a border similar to that of a dialog, and is object modal. 
+    </p>
+<p class="para block">
+	An alert should not appear in the panel window list unless
+	it is, or may be, the only window shown by an application. For
+	example, an appointment reminder alert may be shown after
+	the main calendar application window has been closed.
+    </p>
+<p class="para block">
+	Otherwise, an alert should be raised above the application when
+	the application window itself is selected from the window list.
+    </p>
+<div class=" block figure block-indent">
+<a name="example-alert-figure"><!--example-alert-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-10</span> </span>An example of an alert</span></div>
+<div class="figure-inner">
+      
+
+      <div class="mediaobject"><img src="images/windows-alert-information.png" width="251"></div>
+    </div>
+</div>
+<div class=" block formalpara">
+      <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Title Format</span></div>
+
+      <p class="para block block-first">Alert windows have no titles, as the title would usually
+      unnecessarily duplicate the alert's primary text. This way, users
+      can read and respond to alerts more quickly as there is less visual
+      noise and confounding text.</p>
+    </div>
+<div class=" block formalpara">
+      <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Resizing</span></div>
+
+      <p class="para block block-first">Alert windows are not resizable. If the user needs to resize your
+      alert, the text is probably not concise enough.</p>
+    </div>
+<div class=" block formalpara">
+      <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Window Commands:</span></div>
+
+      <p class="para block block-first">None</p>
+    </div>
+<div class="admonition block caution block-indent"><div class="caution-inner">
+      <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Alerts must stay above their parent</span></div>
+
+      <p class="para block block-first">Alerts do not appear in the system window list. Consequently, take
+      care to ensure that alerts stay above their parent window. Otherwise,
+      users will be likely to lose the alert and find your application
+      unresponsive for no apparent reason. Modal windows should always stay
+      above the window(s) they block.</p>
+    </div></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">3.4.1. </span><a class="xref" href="windows-alert.html#alert-text" title="Alert Text">Alert Text</a>
+</li>
+<li>
+<span class="label">3.4.2. </span><a class="xref" href="windows-alert.html#alert-button-order" title="Alert Buttons">Alert Buttons</a>
+</li>
+<li>
+<span class="label">3.4.3. </span><a class="xref" href="windows-alert.html#alert-spacing" title="Spacing and Positioning Inside Alerts">Spacing and Positioning Inside Alerts</a>
+</li>
+<li>
+<span class="label">3.4.4. </span><a class="xref" href="windows-alert.html#alerts-information" title="Information Alerts">Information Alerts</a>
+</li>
+<li>
+<span class="label">3.4.5. </span><a class="xref" href="windows-alert.html#alerts-error" title="Error Alerts">Error Alerts</a>
+</li>
+<li>
+<span class="label">3.4.6. </span><a class="xref" href="windows-alert.html#alerts-confirmation" title="Confirmation Alerts">Confirmation Alerts</a>
+</li>
+<li>
+<span class="label">3.4.7. </span><a class="xref" href="windows-alert.html#alerts-authentication" title="Authentication Alerts">Authentication Alerts</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="alert-text"><!--alert-text--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.1. </span>Alert Text</span></h2></div>
+<p class="para block block-first">An alert may contain both primary and secondary text. The primary
+      text briefly summarizes the situation. The secondary text provides
+      additional information.</p>
+<p class="para block">Make both the primary and secondary text selectable. This
+	makes it easy for the user to copy and paste the text to another
+	window, such as an email message.
+	</p>
+<div class=" block figure block-indent">
+<a name="alert-text-figure"><!--alert-text-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-11</span> </span>Primary and Secondary Text Placement</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-text.png" width="446"></div>
+      </div>
+</div>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Primary Text</span></div>
+
+        <p class="para block block-first">The primary text provides the user with a one sentence summary
+        of the information or suggested action. This summary should concisely
+        contain the essential details of the problem or suggestion. Every
+        alert has primary text, displayed in a bold font slightly larger than
+	the default. The primary text is punctuated in 'newspaper headline'
+	style, that is, it has no terminating period, but it may have a 
+	terminating question mark.</p>
+      </div>
+<p class="para block">Denote primary text with the pango markup:
+      <div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">&lt;span weight="bold"
+      size="larger"&gt;<span class="replaceable">Primary Text</span>&lt;/span&gt;</pre></div></p>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Secondary Text</span></div>
+
+        <p class="para block block-first">Secondary text provides a more in-depth description of the
+        problem and suggested action, including possible side effects.
+        Secondary text can also provide information that may be helpful in
+        allowing the user to make an informed decision. In most situations the
+        user should only need the primary text to make a quick decision, but
+        they may read the secondary text if they are unsure of the proper
+        course of action, or require extra details. Secondary text is
+        optional, but if used, place it one text line height beneath the
+        primary text using the default font size and weight.</p>
+      </div>
+</div>
+<div class="division sect2">
+<a name="alert-button-order"><!--alert-button-order--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.2. </span>Alert Buttons</span></h2></div>
+<p class="para block block-first">Give all alerts an affirmative button that dismisses the alert and
+      performs the action suggested in the primary text. Provide a
+      <span class="guibutton">Cancel</span> button for all alerts displayed in
+      response to a user actions, such as <span class="guimenuitem">Quit</span>. If
+      the alert warns of a technical problem or other situation that could
+      result in data loss, provide a <span class="guibutton">Help</span> button that
+      provides more information on the particular situation and explains the
+      user's options. You may also provide buttons to perform alternate
+      actions that provide another possible solution, fix potential problems,
+      or launch related dialogs or programs.</p>
+<div class=" block figure block-indent">
+<a name="alert-buttons-figure"><!--alert-buttons-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-12</span> </span>Button ordering and placement for alerts</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-buttons.png" width="425"></div>
+      </div>
+</div>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Button Phrasing</span></div>
+
+        <p class="para block block-first">Write button labels as imperative verbs, for example
+        <span class="guibutton">Save</span>, <span class="guibutton">Print</span>. This allows
+        users to select an action with less hesitation. An active phrase also
+        fits best with the button's role in initiating actions, as
+        contrasted with a more passive phrase. For example
+        <span class="guibutton">Find</span> and <span class="guibutton">Log In</span> are
+        better buttons than than <span class="guibutton">Yes</span> and
+        <span class="guibutton">OK</span>.</p>
+      </div>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+          <div class=" block formalpara block-first">
+            <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Affirmative Button</span></div>
+
+            <p class="para block block-first">Place the affirmative button in the lower right corner of
+            the alert. The affirmative button accepts the action proposed by
+            the alert, or simply dismisses the alert if no action is suggested
+            (as is the case with an <a class="link" href="windows-alert.html#alerts-information" title="Information Alerts">information
+            alert</a>).</p>
+          </div>
+        </li>
+<li>
+          <div class=" block formalpara block-first">
+            <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Cancel Button</span></div>
+
+            <p class="para block block-first">If the alert was produced in response to a user action,
+            place a <span class="guibutton">Cancel</span> button immediately to the
+            left of the affirmative button. This provides an escape route for
+            users to stop an action in response to new information, or just if
+            they clicked accidentally. Clicking the <span class="guibutton">Cancel</span>
+            button reverts the application to its state prior to the user
+            action.</p>
+          </div>
+        </li>
+<li>
+          <div class=" block formalpara block-first">
+            <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Help Button</span></div>
+
+            <p class="para block block-first">A <span class="guibutton">Help</span> button may be used to clarify
+            alerts that present potentially destructive options. Place the
+            <span class="guibutton">Help</span> button in the lower left corner of the
+            alert. When clicked, launch a help window clarifying the
+            situation, detailing the actions performed by the other buttons,
+            and explaining any side-effects that each action may have.</p>
+          </div>
+        </li>
+<li>
+          <div class=" block formalpara block-first">
+            <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Alternate Buttons</span></div>
+
+            <p class="para block block-first">Extra buttons may be used to provide alternates to the
+            primary action proposed by the alert text. Place these buttons to
+            the left of the <span class="guibutton">Cancel</span> button, or the
+            affirmative button if <span class="guibutton">Cancel</span> is not
+            present. An example of a common alternate action would be a
+            <span class="guibutton">Quit without Saving</span> button in a save
+            confirmation alert. This is an alternative to the primary
+            suggested action <span class="guibutton">Save</span> and the
+            <span class="guibutton">Cancel</span> button.</p>
+          </div>
+        </li>
+</ul></div>
+</div>
+<div class="division sect2">
+<a name="alert-spacing"><!--alert-spacing--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.3. </span>Spacing and Positioning Inside Alerts</span></h2></div>
+<p class="para block block-first">Using clear, consistent spacing in alerts makes the message easier
+      to digest and the available responses more obvious.</p>
+<div class=" block figure block-indent">
+<a name="alert-spacing-figure"><!--alert-spacing-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-13</span> </span>Spacing inside an alert</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-spacing.png" width="530"></div>
+      </div>
+</div>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+          <span class="para">The border around all edges of the alert, and the space
+          between the icon and the text, is 12 pixels.</span>
+        </li>
+<li>
+          <span class="para">The horizontal spacing between the buttons is 6 pixels.</span>
+        </li>
+<li>
+          <span class="para">Add one line break at the standard font size below both the
+          primary and secondary text, or 24 pixels if you are using Glade.</span>
+        </li>
+<li>
+          <span class="para">Align the top of the icon with the top of the primary text.</span>
+        </li>
+<li>
+          <span class="para">Left-align the message text, for western locales.</span>
+        </li>
+</ul>
+</div>
+<div class="admonition block tip block-indent"><div class="tip-inner">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Technical Details for Proper Layout</span></div>
+
+        <p class="para block block-first">Create a new GtkDialog window specifying the number of buttons
+        you wish the alert to contain (and a help button if appropriate). The
+        GtkDialog will contain a GtkVBox with an empty upper row, and a lower
+        row containing a GtkButtonBox with buttons in it. In the empty upper
+        row, place a new GtkHBox. In the left column of the GtkHBox place a
+        GtkImage. In the right column of the GtkHBox place a GtkLabel. Inside
+        the GtkLabel place <span class="replaceable">Primary Text</span> first
+        (using the appropriate Pango markup, see <a class="xref" href="windows-alert.html#alert-text" title="Alert Text">Section 3.4.1 ― Alert Text</a>),
+        then put two linebreaks (return), then place
+        <span class="replaceable">Secondary Text</span>. Now change the properties
+        for each control according to these tables:</p>
+
+        <div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 3-1</span> </span>Properties for the GtkDialog</span></div>
+<table summary="Properties for the GtkDialog" style="border-bottom: solid 1px; border-top: solid 1px;">
+<thead><tr>
+<th style="text-align: left;vertical-align: top;">Property</th>
+<th style="text-align: left;vertical-align: top;">Value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Title</td>
+<td style="text-align: left;">(none)</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;">Border Width</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type</td>
+<td style="text-align: left;">Top Level</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;">Resizable</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">Has Seperator</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+        <div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 3-2</span> </span>Properties for the GtkVBox (included in the dialog by
+          default)</span></div>
+<table summary="Properties for the GtkVBox (included in the dialog by
+          default)" style="border-bottom: solid 1px; border-top: solid 1px;">
+<thead><tr>
+<th style="text-align: left;vertical-align: top;">Property</th>
+<th style="text-align: left;vertical-align: top;">Value</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align: left;">Spacing</td>
+<td style="text-align: left;">12</td>
+</tr></tbody>
+</table>
+</div>
+
+        <div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 3-3</span> </span>Properties for the GtkHBox</span></div>
+<table summary="Properties for the GtkHBox" style="border-bottom: solid 1px; border-top: solid 1px;">
+<thead><tr>
+<th style="text-align: left;vertical-align: top;">Property</th>
+<th style="text-align: left;vertical-align: top;">Value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Spacing</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;">Border Width</td>
+<td style="text-align: left;">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+        <div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 3-4</span> </span>Properties for the GtkImage</span></div>
+<table summary="Properties for the GtkImage" style="border-bottom: solid 1px; border-top: solid 1px;">
+<thead><tr>
+<th style="text-align: left;vertical-align: top;">Property</th>
+<th style="text-align: left;vertical-align: top;">Value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Y Align</td>
+<td style="text-align: left;">0.00</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;">Icon Size</td>
+<td style="text-align: left;">Dialog</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+        <div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 3-5</span> </span>Properties for the GtkLabel</span></div>
+<table summary="Properties for the GtkLabel" style="border-bottom: solid 1px; border-top: solid 1px;">
+<thead><tr>
+<th style="text-align: left;vertical-align: top;">Property</th>
+<th style="text-align: left;vertical-align: top;">Value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Use Markup</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;">Wrap Text</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Y Align</td>
+<td style="text-align: left;">0.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+      </div></div>
+</div>
+<div class="division sect2">
+<a name="alerts-information"><!--alerts-information--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.4. </span>Information Alerts</span></h2></div>
+<p class="para block block-first">Use an information alert when the user must know the information
+      presented before continuing, or has specifically requested the
+      information. Present less important information by other means such as a
+      statusbar message.</p>
+<div class=" block figure block-indent">
+<a name="information-alert-figure"><!--information-alert-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-14</span> </span>An information alert</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-information.png" width="251"></div>
+      </div>
+</div>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>An information alert...</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+          <span class="para">uses the stock information icon.</span>
+        </li>
+<li>
+          <span class="para">presents a selectable message and an <span class="guibutton">OK</span>
+          button. The button is placed in the bottom right corner of the
+          alert. Pressing <span class="keysym" dir="ltr">Enter</span> or <span class="keysym" dir="ltr">Escape</span>
+          dismisses the alert.</span>
+        </li>
+<li>
+          <span class="para">may present a convenience button to give access to a relevant
+          object. For example, a <span class="guibutton">Details</span> button in an
+          appointment reminder alert that opens the appointment's property
+          window. Place this button to the left of the affirmative button.</span>
+
+          
+        </li>
+</ul>
+</div>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Window Commands:</span></div>
+
+        <p class="para block block-first">Roll-up/Unroll, Minimize (if the alert has no parent window),
+        Close</p>
+      </div>
+</div>
+<div class="division sect2">
+<a name="alerts-error"><!--alerts-error--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.5. </span>Error Alerts</span></h2></div>
+<p class="para block block-first">Display an error alert when a user-requested operation cannot be
+      sucessfully completed. Present errors caused by operations not requested
+      by the user by another means, unless the error could result in data loss
+      or other serious problems. For example, an error encountered during an
+      email check initiated by the user clicking a toolbar button should
+      present an error alert. However, an error encountered in an automated
+      periodic email check would more appropriately report failure with a
+      statusbar message.</p>
+<div class=" block figure block-indent">
+<a name="error-alert-figure"><!--error-alert-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-15</span> </span>An error alert</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-error.png" width="287"></div>
+      </div>
+</div>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>An error alert...</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+          <span class="para">uses the stock error icon.</span>
+        </li>
+<li>
+          <span class="para">presents a selectable message and an <span class="guibutton">OK</span>
+          button. The button is placed in the bottom-right corner of the
+          alert. Pressing <span class="keysym" dir="ltr">Enter</span> may dismiss the error alert.</span>
+        </li>
+<li>
+          <span class="para">may present a convenience button to allow immediate handling
+          of the error. For example, a <span class="guibutton">Format...</span> button
+          in a "This disk is not formatted" alert. Place this button
+          to the left of the affirmative button.</span>
+        </li>
+</ul>
+</div>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Window Commands:</span></div>
+
+        <p class="para block block-first">Roll-up/Unroll</p>
+      </div>
+</div>
+<div class="division sect2">
+<a name="alerts-confirmation"><!--alerts-confirmation--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.6. </span>Confirmation Alerts</span></h2></div>
+<p class="para block block-first">Present a confirmation alert when the user's command may
+      destroy their data, create a security risk, or take more than 30 seconds
+      of user effort to recover from if it was selected in error.</p>
+<div class=" block figure block-indent">
+<a name="confirmation-alert-figure"><!--confirmation-alert-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-16</span> </span>A confirmation alert</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-confirmation.png"></div>
+      </div>
+</div>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>A confirmation alert...</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+          <span class="para">uses the stock warning icon.</span>
+        </li>
+<li>
+          <span class="para">presents a selectable message and a button labelled with 
+          a verb or verb phrase
+          describing the action to be confirmed, or labelled
+          <span class="guilabel">OK</span> if such a phrase would be longer than three
+          words. This button is placed in the bottom right corner of the
+          alert.</span>
+        </li>
+<li>
+          <span class="para">presents a <span class="guibutton">Cancel</span> button that will
+          prevent execution of the user's command. This button is placed
+          to the immediate left of the <span class="guibutton">OK</span> or equivalent
+          button.</span>
+        </li>
+<li>
+          <span class="para">may present an alternate action button or a convenience
+          button. Place this button to the left of the <span class="guibutton">Cancel</span>
+          button.</span>
+        </li>
+</ul>
+</div>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Window Commands:</span></div>
+
+        <p class="para block block-first">Roll-up/Unroll</p>
+      </div>
+<div class="autotoc"><ul><li>
+<span class="label">3.4.6.1. </span><a class="xref" href="windows-alert.html#save-confirmation-alerts" title="Save Confirmation Alerts">Save Confirmation Alerts</a>
+</li></ul></div>
+<div class="division sect3">
+<a name="save-confirmation-alerts"><!--save-confirmation-alerts--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">3.4.6.1. </span>Save Confirmation Alerts</span></h3></div>
+<p class="para block block-first">Save confirmation alerts help ensure that users do not lose
+        document changes when they close applications. This makes closing
+        applications a less dangerous operation.</p>
+<div class=" block figure block-indent">
+<a name="save-alert-figure"><!--save-alert-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-17</span> </span>A save confirmation alert</span></div>
+<div class="figure-inner">
+          
+
+          <div class="mediaobject"><img src="images/windows-alert-save.png" width="500"></div>
+        </div>
+</div>
+<div class=" block formalpara">
+          <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Primary Text</span></div>
+
+          <p class="para block block-first">Save changes to document <span class="replaceable">Document Name</span>
+          before closing?</p>
+        </div>
+<p class="para block">You may replace <span class="quote">“document”</span> with a more appropriate
+        description, for example <span class="quote">“image”</span> or <span class="quote">“diagram”</span>
+        if the document in question is not primarily text.</p>
+<div class=" block formalpara">
+          <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Secondary Text</span></div>
+
+          <p class="para block block-first">If you close without saving, changes from the last
+          <span class="replaceable">Time Period</span> will be discarded</p>
+        </div>
+<p class="para block">The secondary text provides the user with
+        some context about the number of changes that might be unsaved.</p>
+<div class=" block formalpara">
+          <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Buttons</span></div>
+
+          <p class="para block block-first"><span class="guibutton">Close without Saving</span>,
+          <span class="guibutton">Cancel</span>, <span class="guibutton">Save</span></p>
+        </div>
+<p class="para block">
+When a confirmation alert is needed,
+present it immediately. If the user confirms closing without saving,
+hide the alert and the document or application  window immediately, 
+before doing any necessary internal clean-up.
+If the user chooses to save before
+closing, hide the alert immediately but show the document window until the document is
+saved, in case an error occurs.  Then hide the document window immediately after it has been saved successfuly.
+	</p>
+</div>
+</div>
+<div class="division sect2">
+<a name="alerts-authentication"><!--alerts-authentication--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.4.7. </span>Authentication Alerts</span></h2></div>
+<p class="para block block-first">Authentication alerts prompt the user for information necessary to
+      gain access to protected resources, such as their username or password.
+      Authentication alerts are a special kind of alert because they are both
+      routine and largely unavoidable. Every attempt should be made to retain
+      information entered into an authentication alert as long as is possible
+      within security constraints.</p>
+<div class=" block figure block-indent">
+<a name="authentication-alert-figure"><!--authentication-alert-figure--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-18</span> </span>An authentication alert</span></div>
+<div class="figure-inner">
+        
+
+        <div class="mediaobject"><img src="images/windows-alert-authentication.png" width="460"></div>
+      </div>
+</div>
+<p class="para block"><div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first"><span class="para">Use the
+      stock authentication icon.</span></li>
+<li><span class="para">Show
+      a labelled field for each required item of information. Suggested fields
+      are <span class="guilabel">Username</span> and <span class="guilabel">Password</span> (in
+      that order) where appropriate.</span></li>
+<li><span class="para">If it is
+      secure to retain the username longer than the password, pre-fill the
+      username field and give focus to the password field when the alert is
+      displayed.</span></li>
+<li><span class="para">Show a button labelled with
+      a verb or verb phrase describing the authentication action, or
+      <span class="guilabel">OK</span> if there is no appropriate phrase or such a
+      phrase would be longer than three words. Place this button in the bottom
+      right corner of the alert.</span></li>
+<li><span class="para">Do not
+      enable the <span class="guibutton">OK</span> or equivalent button until all
+      fields that require input have been attended to by the user. Remember
+      that not all fields may require input however, for example an empty
+      password may be acceptable in some applications.</span></li>
+<li><span class="para">Show
+      a <span class="guibutton">Cancel</span> button that will prevent authentication
+      and close the alert. Place this button to the immediate left of the
+      <span class="guibutton">OK</span> or equivalent button.</span></li>
+<li><span class="para">Place
+      any alternative action or convenience button to the left of the
+      <span class="guibutton">Cancel</span> button.</span></li>
+<li><span class="para">When
+      the user presses <span class="keycap">Return</span> in the last field, activate the
+      default button. When the user presses <span class="keycap">Return</span> in any
+      other field, move focus to the next field.</span></li>
+</ul>
+</div></p>
+<div class=" block formalpara">
+        <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Window Commands:</span></div>
+
+        <p class="para block block-first">Roll-up/Unroll</p>
+      </div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="windows-utility.html" title="Utility Windows">Utility Windows</a></td>
+<td class="navbar-next"><a class="navbar-next" href="windows-progress.html" title="Progress Windows">Progress Windows</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a><div class="autotoc"><ul>
+<li><a class="xref" href="whatsnew.html" title="What's new?">What's new?</a></li>
+<li><a class="xref" href="intro.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="principles.html" title="Usability Principles">Usability Principles</a></li>
+<li><a class="xref" href="desktop-integration.html" title="Desktop Integration">Desktop Integration</a></li>
+<li>
+<a class="xref" href="windows.html" title="Windows">Windows</a><div class="autotoc"><ul>
+<li><a class="xref" href="windows-properties.html" title="Parts of Windows and System Interaction">Parts of Windows and System Interaction</a></li>
+<li><a class="xref" href="windows-primary.html" title="Primary Windows">Primary Windows</a></li>
+<li><a class="xref" href="windows-utility.html" title="Utility Windows">Utility Windows</a></li>
+<li>Alerts</li>
+<li><a class="xref" href="windows-progress.html" title="Progress Windows">Progress Windows</a></li>
+<li><a class="xref" href="windows-dialog.html" title="Dialogs">Dialogs</a></li>
+<li><a class="xref" href="windows-assistant.html" title="Assistants">Assistants</a></li>
+</ul></div>
+</li>
+<li><a class="xref" href="menus.html" title="Menus">Menus</a></li>
+<li><a class="xref" href="toolbars.html" title="Toolbars">Toolbars</a></li>
+<li><a class="xref" href="controls.html" title="Controls">Controls</a></li>
+<li><a class="xref" href="feedback.html" title="Feedback">Feedback</a></li>
+<li><a class="xref" href="design.html" title="Visual Design">Visual Design</a></li>
+<li><a class="xref" href="icons.html" title="Icons">Icons</a></li>
+<li><a class="xref" href="input.html" title="User Input">User Input</a></li>
+<li><a class="xref" href="language.html" title="Language">Language</a></li>
+<li><a class="xref" href="reality-checks.html" title="Checklists">Checklists</a></li>
+<li><a class="xref" href="credits.html" title="Credit">Credit</a></li>
+<li><a class="xref" href="bibliography.html" title="Bibliography">Bibliography</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://bugzilla.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://git.gnome.org/browse/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://identi.ca/gnome/">Identi.ca</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="/languages" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="/js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

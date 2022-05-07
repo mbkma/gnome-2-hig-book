@@ -1,0 +1,1448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Standard Menus</title>
+<link rel="previous" href="menus-design.html" title="Designing a Menu">
+<link rel="next" href="toolbars.html" title="Toolbars">
+<link rel="top" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("admon-caution.png"); }
+div.important-inner { background-image: url("admon-important.png"); }
+div.note-inner { background-image: url("admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.tip-inner { background-image: url("admon-tip.png"); }
+div.warning-inner { background-image: url("admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<body>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="menus-standard"><!--menus-standard--></a><div class="header"><h1 class="sect1 title"><span class="title">Standard Menus</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="menus.html" title="Menus">Menus</a></li>
+</ul>
+<p class="para block block-first">Most applications have many functions in common, such as <span class="guimenu">Cut</span>, <span class="guimenu">Copy</span>, <span class="guimenu">Paste</span> and <span class="guimenu">Quit</span>.  To aid learning and memorability, these menu items, and the menus on which they appear, must appear with the same labels and in the same order in every application.  The same commands must also behave the same way in different applications, to avoid surprising the user.</p>
+<p class="para block">This section details the most common menus, menu items and their behaviors.  You will not need all of these menus or menu items in every application you write, but do preserve the order of the menu titles and of the menu items that you do use.</p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first"><span class="para">Place application-specific menus after the <span class="guimenu">Format</span> menu and before the <span class="guimenu">Go</span> menu</span></li>
+<li><span class="para">Place application-specific menu items towards the middle of a standard menu, unless they logically fit with one of the standard groups already on the menu.</span></li>
+</ul>
+</div>
+<div class=" block figure block-indent">
+<a name="generic-menu-bar"><!--generic-menu-bar--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-9</span> </span>A menubar showing all the standard menu titles in their correct order</span></div>
+<div class="figure-inner">
+	
+	<div class="mediaobject"><img src="images/menus-application.png" width="454"></div>
+      </div>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.4.1. </span><a class="xref" href="menus-standard.html#the-file-menu" title="File">File</a>
+</li>
+<li>
+<span class="label">4.4.2. </span><a class="xref" href="menus-standard.html#menu-standard-edit" title="Edit">Edit</a>
+</li>
+<li>
+<span class="label">4.4.3. </span><a class="xref" href="menus-standard.html#menu-standard-view" title="View">View</a>
+</li>
+<li>
+<span class="label">4.4.4. </span><a class="xref" href="menus-standard.html#menu-standard-insert" title="Insert">Insert</a>
+</li>
+<li>
+<span class="label">4.4.5. </span><a class="xref" href="menus-standard.html#menu-standard-format" title="Format">Format</a>
+</li>
+<li>
+<span class="label">4.4.6. </span><a class="xref" href="menus-standard.html#menu-standard-bookmarks" title="Bookmarks">Bookmarks</a>
+</li>
+<li>
+<span class="label">4.4.7. </span><a class="xref" href="menus-standard.html#menu-standard-go" title="Go">Go</a>
+</li>
+<li>
+<span class="label">4.4.8. </span><a class="xref" href="menus-standard.html#application-windows-menu" title="Windows">Windows</a>
+</li>
+<li>
+<span class="label">4.4.9. </span><a class="xref" href="menus-standard.html#menu-standard-help" title="Help">Help</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="the-file-menu"><!--the-file-menu--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.1. </span>File</span></h2></div>
+<p class="para block block-first">The <span class="guimenu">File</span> menu contains commands that operate on the current document. It is the left-most item in the menubar because of its importance and frequency of use, and because it is a relevant menu in many applications. Historically, because most applications already had this menu, and because the distinction between closing documents and closing windows became blurred over time, the <span class="guimenu">File</span> menu has also become the standard location for <span class="guimenuitem">Quit</span>.</p>
+<p class="para block">The items on the <span class="guimenu">File</span> menu are generally ordered by locality, closest first.  That is, items to save or load from file, followed by printing, followed by sending to a remote user.  Try to maintain this ordering if you have to add new items to the menu.</p>
+<p class="para block">If your application does not operate on documents, name this item for the type of object it displays.  For example, many games should have a <span class="guimenu">Game</span> instead of a <span class="guimenu">File</span> menu.  However, place the <span class="guimenuitem">Quit</span> menu item last on this menu nonetheless.</p>
+<div class=" block figure block-indent">
+<a name="generic-file-menu"><!--generic-file-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-10</span> </span>A generic File menu</span></div>
+<div class="figure-inner">
+	<div class="mediaobject"><img src="images/menus-file.png" width="290"></div>
+	</div>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.4.1.1. </span><a class="xref" href="menus-standard.html" title="Creation and Opening Operations">Creation and Opening Operations</a>
+</li>
+<li>
+<span class="label">4.4.1.2. </span><a class="xref" href="menus-standard.html" title="Saved State Operations">Saved State Operations</a>
+</li>
+<li>
+<span class="label">4.4.1.3. </span><a class="xref" href="menus-standard.html" title="Export Operations">Export Operations</a>
+</li>
+<li>
+<span class="label">4.4.1.4. </span><a class="xref" href="menus-standard.html" title="File Properties">File Properties</a>
+</li>
+<li>
+<span class="label">4.4.1.5. </span><a class="xref" href="menus-standard.html" title="Closing Operations">Closing Operations</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.1.1. </span>Creation and Opening Operations</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-1</span> </span>Creation and Opening operation menu items </span></div>
+<table summary="Creation and Opening operation menu items " style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">N</span>ew</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">N</span></span></td>
+<td style="text-align: left;vertical-align: top;">Creates a new document. Open a new primary window, with the title <span class="replaceable">Document name</span>, containing a blank document.  How this window is displayed, e.g. as a tab or a separate window, is up to the window manager.
+			<p class="para block">If your application can create a number of different types of document, you can make the <span class="guimenuitem"><span class="accel">N</span>ew</span> item a submenu, containing a menu item for each type. Label these items <span class="guimenuitem">New <span class="replaceable">document type</span></span>, make the first entry in the submenu the most commonly used document type, and give it the <span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">N</span></span> shortcut.</p>
+			<p class="para block">Note: A blank document will not necessarily be completely blank. For example, a document created from a template may already contain some data.</p>
+		</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">O</span>pen...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">O</span></span></td>
+<td style="text-align: left;vertical-align: top;">Opens an existing document in a new window. Present the user with a standard Open File dialog  from which they can choose an existing file. If the chosen file is already open in the application, raise that window instead of opening a new one. 
+		
+		  
+		  
+			</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.1.2. </span>Saved State Operations</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-2</span> </span>Saved State Operation menu items</span></div>
+<table summary="Saved State Operation menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>ave</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">S</span></span></td>
+<td style="text-align: left;vertical-align: top;">Saves the document with its current filename. If the document already has a filename associated with it, save the document immediately without any further interaction from the user. If there are any additional options involved in saving a file (eg. DOS or UNIX-style line endings in a text file), prompt for these first time the document is saved, but subsequently use the same values each time until the user changes them.
+		<span class="para">If the document has no current filename or is read-only, selecting this item should be the same as selecting <span class="guimenuitem">Save As</span>.</span>
+		</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Save <span class="accel">A</span>s...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">S</span></span></td>
+<td style="text-align: left;vertical-align: top;">Saves the document with a new filename. Present the user with the standard Save As dialog, and save the file with the chosen file name. </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">S<span class="accel">a</span>ve a Copy...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Prompts the user to enter a filename, with which a copy of the document is then saved.  Do not alter either the view or the filename of the original document.  All subsequent changes are still made to the original document until the user specifies otherwise, for example by choosing the <span class="guimenuitem">Save As</span> command.
+		<p class="para block"> Like the <span class="guimenuitem">Save As</span> dialog, the <span class="guimenuitem">Save a Copy</span> dialog may present different ways to save the data. For example, an image may be saved in a native format or as a PNG.</p>
+</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>evert</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Reverts the document to the last saved state. Present the user with a warning that all changes will be lost, and offer the option of cancelling before reloading the file.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Save <span class="accel">V</span>ersion...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">An alternative to the <span class="guimenuitem">Save a Copy</span> command.  Only use this item in conjunction with the <span class="guimenuitem">Restore Version</span>.  command.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">R<span class="accel">e</span>store Version...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Prompts the user for a version of the current document to be restored. Present the user with with a warning that all changes will be lost, and offer the option of cancelling before restoring the version. Only use this item in conjunction with the <span class="guimenuitem">Save Version</span> command.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">V</span>ersions...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">An alternative to the <span class="guimenuitem">Save Version</span> and <span class="guimenuitem">Restore Version</span> commands. Use this when more utilities, such as a diff, are available.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.1.3. </span>Export Operations</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-3</span> </span>Export Operation menu items</span></div>
+<table summary="Export Operation menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Page Set<span class="accel">u</span>p</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Allows the user to control print-related settings. Present the user with a dialog allowing the user to set such options as portrait or landscape format, margins, and so on. </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Print Previe<span class="accel">w</span></span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">P</span></span></td>
+<td style="text-align: left;vertical-align: top;">Shows the user what the printed document will look like. Present a new window containing an accruate represenation of the appearance of the document as it would be printed.  The libgnomeprintui library provides a standard Print Preview window that you should use if possible.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>rint...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">P</span></span></td>
+<td style="text-align: left;vertical-align: top;">Prints the current document. Present the user with a dialog allowing them to set options like the page range to be printed, the printer to be used, and so on. The dialog must contain a button labelled <span class="guibutton">Print</span> that starts printing and closes the dialog.  The <span class="filename" dir="ltr">libgnomeprintui</span> library provides a standard Print dialog that you should use if possible.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">S<span class="accel">e</span>nd To...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">M</span></span></td>
+<td style="text-align: left;vertical-align: top;">Provides the user a means to attach or send the current document as an email or email attachment, depending on its format.
+		<span class="para">You may provide more than one <span class="guimenuitem">Send</span> item depending on which options are available. If there are more than two such items, move them into a submenu. For example, if only <span class="guimenuitem">Send by Email</span> and <span class="guimenuitem">Send by Fax</span> are available, leave them on the top-level menu  If there is a third option, such as <span class="guimenuitem">Send by FTP</span>, place all the options in a <span class="guimenuitem">Send</span> submenu.</span>
+	      </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.1.4. </span>File Properties</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-4</span> </span>Properties menu items</span></div>
+<table summary="Properties menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top"><tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Proper<span class="accel">t</span>ies</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Return</span></span></td>
+<td style="text-align: left;vertical-align: top;">Opens the document's <span class="guilabel">Properties</span> window.  This may contain editable information, such as the document author's name, or read-only information, such as the number of words in the document, or a combination of both. The <span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Return</span></span> shortcut should not be provided where <span class="keycap">Return</span> is most frequently used to insert a new line.</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.1.5. </span>Closing Operations</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-5</span> </span>Closing Operation menu items</span></div>
+<table summary="Closing Operation menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>lose</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">W</span></span></td>
+<td style="text-align: left;vertical-align: top;">Closes the current document. If it has unsaved changes, present the user with a <a class="link" href="windows-alert.html#alerts-confirmation" title="Confirmation Alerts">confirmation alert</a> giving the option to save changes, discard them, or cancel the action without closing or saving the document.
+		<p class="para block">If the window you are closing is the last open document in the application, the correct action depends on your application type:</p>
+		<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">Single document interface: close the application</span></li>
+<li><span class="para">Controlled single document interface: leave only the control window open</span></li>
+<li><span class="para">Multiple document interface: close the current document and create a new blank document</span></li>
+</ul></div>		
+		  
+	      </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">Q</span>uit</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Q</span></span></td>
+<td style="text-align: left;vertical-align: top;">
+<p class="para block block-first">Closes the application. If there are unsaved changes in any open documents, present the user with a <a class="link" href="windows-alert.html#alerts-confirmation" title="Confirmation Alerts">confirmation alert</a> for each affected document, giving the option to save the changes, discard them, or cancel. If there are no unsaved changes, close the application immediately without presenting any further messages or dialogs.</p>
+		<p class="para block">In particular, non-document based applications, for example a game or a calculator, should save their state and exit immediately.  This state should be restored the next time the application is started.</p> 
+		  
+	      </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-edit"><!--menu-standard-edit--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.2. </span>Edit</span></h2></div>
+<p class="para block block-first">The <span class="guimenu">Edit</span> menu contains items relating to editing both the document (clipboard handling, search and replace, and inserting special objects) and the user's preferences.  Preferences are edited here rather than on a <span class="guimenu">Settings</span> menu, because:</p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">most applications' preferences windows are accessed via a single menu item, and single-item menus offer poor usability</span></li>
+<li><span class="para">most applications already contain a suitable <span class="guimenu">Edit</span> menu.</span></li>
+</ul></div>
+<div class=" block figure block-indent">
+<a name="generic-edit-menu"><!--generic-edit-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-11</span> </span>A generic Edit menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-edit.png" width="226"></div>
+	</div>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.4.2.1. </span><a class="xref" href="menus-standard.html" title="Modification History">Modification History</a>
+</li>
+<li>
+<span class="label">4.4.2.2. </span><a class="xref" href="menus-standard.html" title="Manipulating Selected Data">Manipulating Selected Data</a>
+</li>
+<li>
+<span class="label">4.4.2.3. </span><a class="xref" href="menus-standard.html" title="Searching and Replacing">Searching and Replacing</a>
+</li>
+<li>
+<span class="label">4.4.2.4. </span><a class="xref" href="menus-standard.html" title="Inserting Special Objects">Inserting Special Objects</a>
+</li>
+<li>
+<span class="label">4.4.2.5. </span><a class="xref" href="menus-standard.html" title="User Preferences">User Preferences</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.2.1. </span>Modification History</span></h3></div>
+<p class="para block block-first">Document-based applications should maintain a history of modifications to a document and the state of the document between each action. The <span class="guimenuitem">Undo</span> and <span class="guimenuitem">Redo</span> commands move backwards and forwards through this history.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-6</span> </span>Modification History menu items </span></div>
+<table summary="Modification History menu items " style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">U</span>ndo <span class="replaceable">action</span></span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Z</span></span></td>
+<td style="text-align: left;vertical-align: top;">Undoes the effect of the previous action in the undo history list. Revert the document to its state before the previous action was performed. If your application supports undo, and the user undoes all changes since it was last saved, treat the document as unmodified.
+		<span class="para">Note: provide a separate <span class="guimenuitem">Undo</span> and <span class="guimenuitem">Redo</span> menu item even if your application only supports one level of undo.</span>
+</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>edo <span class="replaceable">action</span></span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">Z</span></span></td>
+<td style="text-align: left;vertical-align: top;">Performs the next action in the undo history list, after the user has moved backwards through the list with the <span class="guimenuitem">Undo</span> command.  Move the user one step forwards again, restoring the document to the state it was in after that action was originally performed.
+			<p class="para block">Note: provide a separate <span class="guimenuitem">Undo</span> and <span class="guimenuitem">Redo</span> menu item even if your application only supports one level of undo.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.2.2. </span>Manipulating Selected Data</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-7</span> </span>Selected Data Manipulation menu items </span></div>
+<table summary="Selected Data Manipulation menu items " style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Cu<span class="accel">t</span></span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">X</span></span></td>
+<td style="text-align: left;vertical-align: top;">Removes the selected content and places it onto the clipboard. Visually, remove the content from the document in the same manner as <span class="guimenuitem"><span class="accel">D</span>elete</span>.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>opy</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">C</span></span></td>
+<td style="text-align: left;vertical-align: top;">Copies the selected content onto the clipboard.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>aste</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">V</span></span></td>
+<td style="text-align: left;vertical-align: top;">Inserts the contents of the clipboard into the document.  If there is no current selection, use the caret as the insertion point.  If there is a current selection, replace it with the clipboard contents.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Paste <span class="accel">S</span>pecial...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">V</span></span></td>
+<td style="text-align: left;vertical-align: top;">Inserts a non-default representation of the clipboard contents into the document.  Open a dialog presenting a list of the available formats from which the user can select.  For example, if the clipboard contains a PNG file copied from a file manager, the image may be embedded in the document, or a link to the file inserted so that changes to the image on disk are always reflected in the document.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Du<span class="accel">p</span>licate</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">U</span></span></td>
+<td style="text-align: left;vertical-align: top;">Creates a duplicate copy of the selected object.  Do not prompt for a name for the duplicate object, but give it a sensible default (for example, <span class="filename" dir="ltr">Copy of ShoppingList.abw</span>) and allow the user to change it later.  Place the duplicate copy as near the original as possible without overlapping it, even if this means breaking the current sort order within the container, so the user sees it immediately.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">D</span>elete</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycap">Delete</span></td>
+<td style="text-align: left;vertical-align: top;">Removes the selected content without placing it on the clipboard.
+		      </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Select <span class="accel">A</span>ll</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">A</span></span></td>
+<td style="text-align: left;vertical-align: top;">Selects all content in the current document.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">D</span>eselect All</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">A</span></span></td>
+<td style="text-align: left;vertical-align: top;">Deselects all content in the current document. Only provide this item in situations when no other method of undoing selection is possible or apparent to the user.  For example, in complex graphics applications where selection and deselection is not usually possible simply by using the cursor keys.
+		<span class="para">Note: Do not provide <span class="guimenuitem">Deselect All</span> in text entry fields, as <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keysym" dir="ltr">hex digit</span></span> is used to enter unicode characters so its shortcut will not work.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.2.3. </span>Searching and Replacing</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-8</span> </span>Search and Replace menu items </span></div>
+<table summary="Search and Replace menu items " style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">Find...</td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">F</span></span></td>
+<td style="text-align: left;vertical-align: top;">Opens a window or dialog allowing the user to search for specific content in the current document.  Highlight each match in-place.
+		<span class="para">If the command allows the user to search for content in places other than the current document, for example other open documents, other documents on disk, or a remote network location, label this item <span class="guimenuitem">Search</span> instead of <span class="guimenuitem">Find</span>.</span>
+</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Find Ne<span class="accel">x</span>t</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">G</span></span></td>
+<td style="text-align: left;vertical-align: top;">Selects the next instance of the last Find term in the current document.  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Find Pre<span class="accel">v</span>ious</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">G</span></span></td>
+<td style="text-align: left;vertical-align: top;">Selects the previous instance of the last Find term in the current document.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>eplace...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">H</span></span></td>
+<td style="text-align: left;vertical-align: top;">Opens a window or dialog allowing the user to search for specific content in the current document, and replace each occurrence with new content. 	    
+		 	
+		</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.2.4. </span>Inserting Special Objects</span></h3></div>
+<p class="para block block-first">Where applicable, provide items on the <span class="guimenu">Edit</span> menu that insert special objects such as images, links, GUI controls or the current date and time. </p>
+<p class="para block">If you have up to three types of object that can be inserted, add them as individual items to this menu, for example <span class="guimenuitem">Insert Image</span>, or <span class="guimenuitem">Insert External Link</span>.  If you have between three and six types, place them on an <span class="menuchoice"><span class="guimenu">Edit</span> ▸ <span class="guimenuitem">Insert</span></span> submenu.  If you have more than six, add a separate <a class="link" href="menus-standard.html#menu-standard-insert" title="Insert"><span class="guimenu">Insert</span> menu</a> to the menubar.</p>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.2.5. </span>User Preferences</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-9</span> </span>User Preferences menu items</span></div>
+<table summary="User Preferences menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top"><tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Pr<span class="accel">e</span>ferences</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Opens a <a class="link" href="windows-utility.html#preference-windows" title="Preferences Windows">preferences window</a> allowing the user to change preferences for the whole application.  Changes will apply to all running and subsequent instances of the application.</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-view"><!--menu-standard-view--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.3. </span>View</span></h2></div>
+<p class="para block block-first">The <span class="guimenu">View</span> menu contains only items that affect the user's view of the current document.  Do not place any items on the <span class="guimenu">View</span> menu that affect the the content of the current document.  (Exception: <span class="menuchoice"><span class="guimenu">View</span> ▸ <span class="guimenuitem">Reload</span></span> may change the current contents if, for example, the document is a webpage that has been recently updated on the server).</p>
+<div class=" block figure block-indent">
+<a name="generic-view-menu"><!--generic-view-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-12</span> </span>A generic View menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-view.png" width="166"></div>
+	</div>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.4.3.1. </span><a class="xref" href="menus-standard.html" title="Toolbar and Statusbar">Toolbar and Statusbar</a>
+</li>
+<li>
+<span class="label">4.4.3.2. </span><a class="xref" href="menus-standard.html" title="Content Presentation">Content Presentation</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.3.1. </span>Toolbar and Statusbar</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-10</span> </span>Toolbar and Statusbar menu items</span></div>
+<table summary="Toolbar and Statusbar menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top"><tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">T</span>oolbar</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Shows or hides the application's toolbar.  This is a <a class="link" href="menus-design.html#menu-item-type-check" title="Checkbox Items">check box menu item</a>. Include this item in every application that has a single toolbar.  See <a class="xref" href="toolbars-controlling-display.html" title="Controlling Display and Appearance">Section 5.2 ― Controlling Display and Appearance</a> for information on how to deal with multiple toolbars.</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="division sect3">
+<div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.3.2. </span>Content Presentation</span></h3></div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-11</span> </span>Content Presentation menu items</span></div>
+<table summary="Content Presentation menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">I</span>cons</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Shows the contents of the selected container as rows and columns of large icons, each with its name underneath.  This is a <a class="link" href="menus-design.html#menu-item-type-radio" title="Radio Button Items">radio button menu item</a>.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">L</span>ist</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Shows the contents of the selected container as a list of small icons, possibly in multiple columns, each with its name on its right-hand side.  This is a <a class="link" href="menus-design.html#menu-item-type-radio" title="Radio Button Items">radio button menu item</a>.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">D</span>etails</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Shows the contents of the selected container as single column of small icons, each with its name on its right-hand side.  Additional columns give extra information about the object each icon represents, for example the size and modification date of files in a file manager.  This is a <a class="link" href="menus-design.html#menu-item-type-radio" title="Radio Button Items">radio button menu item</a>.
+			<p class="para block">If your application has no need for both <span class="guimenu">List</span> and <span class="guimenu">Details</span> modes, use the <span class="guimenu">List</span> item for whichever of the two modes you support.</p>
+</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">S<span class="accel">o</span>rt By...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sorts the contents of an container by user-specified criteria.  Open a dialog allowing the user to choose from pre-defined sort keys (for example, Name, Size, or Modification Date in a file manager), or to specify their own if applicable.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>ilter...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Hides objects that are not of interest to the user.  Open a dialog allowing the user to choose from a list of types of object they want to display, or to enter their own criteria (for example, a regular expression matched against a particular property of the objects).</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">Z</span>oom In</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">+</span></span></td>
+<td style="text-align: left;vertical-align: top;">Zooms into the document.  Make the center of the new view the same as the center of the previous view. </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Zoom <span class="accel">O</span>ut</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">-</span></span></td>
+<td style="text-align: left;vertical-align: top;">Zooms out of the document.  Make the center of the new view the same as the center of the previous view.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">N</span>ormal Size</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">0</span></span></td>
+<td style="text-align: left;vertical-align: top;">Resets the zoom level back to the default value, normally 100%.  Make the center of the new view the same as the center of the previous view.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">B</span>est Fit</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Makes the document fill the window.  Show the document, or the current page of the document, at as high a zoom level as will fit in the window whilst allowing the whole document or page to be visible without scrolling.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>efresh</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">R</span></span></td>
+<td style="text-align: left;vertical-align: top;">Redraws the current view of the document from local storage.  For example, in a web browser application, this would redraw the page from the browser page cache.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>eload</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">R</span></span></td>
+<td style="text-align: left;vertical-align: top;">Redraws the current view of the document, checking the data source for changes first.  For example, checks the web server for updates to the page before redrawing it.
+			<span class="para">If your application requires both <span class="guimenuitem">Reload</span> and <span class="guimenuitem">Refresh</span>, use <span class="keycombo"><span class="keycap">Shift</span>+<span class="keycap">Ctrl</span>+<span class="keycap">R</span></span> as the shortcut for <span class="guimenuitem">Reload</span>.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-insert"><!--menu-standard-insert--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.4. </span>Insert</span></h2></div>
+<p class="para block block-first">The <span class="guimenuitem">Insert</span> menu lists the type of special objects that can be inserted into the document at the current caret position, for example images, links, page breaks or GUI objects.  Only provide this menu if you have more than about six types of object that can be inserted, otherwise place individual items for each type on the <a class="link" href="menus-standard.html#menu-standard-edit" title="Edit"><span class="guimenu">Edit</span> menu</a>.</p>
+<div class=" block figure block-indent">
+<a name="generic-insert-menu"><!--generic-insert-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-13</span> </span>A generic Insert menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-insert.png" width="118"></div>
+	</div>
+</div>
+<p class="para block">The types of object will vary between applications, but the table below shows some common types that may be applicable.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-12</span> </span>Insert menu items</span></div>
+<table summary="Insert menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>age Break</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts a page break at the caret position.  Show the page break visually, for example as a dotted line across the page, unless the user has specifically requested not to see them.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">D</span>ate and Time...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts the current date and/or time at the caret position.  Open a dialog giving a choice of date and time formats.  If applicable, also offer the choice to insert either as plain text, so the specified date and time will always appear in the document, or as a special field that will updated every time the document is opened, refreshed or printed.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Sy<span class="accel">m</span>bol...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts a special symbol, such as a mathematical symbol or foreign character, at the caret position.  Open a dialog showing all the available symbols as a table, from which the user can choose.  The user must be able to add multiple symbols to the document at one time without having to close and re-open the dialog.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>heet...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Adds a new sheet to the current workbook.  Do not prompt for a name, but choose a sensible default (such as <span class="guilabel">Sheet-2</span>) and allow the user to change it later.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">R</span>ows...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Adds new rows to a table in which one or more rows or cells are currently selected.  Open a dialog asking whether to insert rows above or below the current selection, and for any other required information.  Copy the row format from the last or first row of the current selection respectively, unless the user specifies otherwise.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>olumns...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Adds new columns to a table in which one or more columns or cells are currently selected.  Open a dialog asking whether to insert columns to the left or right of the current selection, and for any other required information.  Copy the column format from the right- or left-most column of the current selection respectively, unless the user specifies otherwise.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">I</span>mage...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts an image into the document from a file.  Present a standard Open File dialog filtered on acceptable file types, from which the user can choose an image file to insert.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">G</span>raph...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts a graph into the document.  Open a dialog or assistant that allows the user to build (or open from a file) a graph of their choice, using the current selection as an indication of which values, axis labels and data labels to use.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>rom FIle...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts an object from any acceptable file type, for example plain text, formatted text, or an image.  Present a standard Open File dialog filtered on acceptable file types, from which the user can choose a file to insert.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">E<span class="accel">x</span>ternal Link...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Inserts a link to an object stored in a different file, or on a remote system.  The object is not embedded in or saved with the document, only a link to it.  Open a dialog in which the user can type or choose the name of the object, for example a filename or a webpage URL.  Show the link in the document in as informative way as possible.  For example, show a link to an image as a thumbnail of that image, unless the user specifies otherwise.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-format"><!--menu-standard-format--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.5. </span>Format</span></h2></div>
+<p class="para block block-first">A <span class="guimenu">Format</span> menu contains commands to change the visual appearance of the document.  For example, changing the font, color, or line spacing of a text selection.</p>
+<p class="para block">The difference between these commands and those on the <a class="link" href="menus-standard.html#menu-standard-view" title="View"><span class="guimenuitem">View</span> menu</a> is that changes made with Format commands are persistent and saved as part of the document, for example as HTML or RTF tags.</p>
+<div class=" block figure block-indent">
+<a name="generic-format-menu"><!--generic-format-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-14</span> </span>A generic Format menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-format.png" width="163"></div>
+	</div>
+</div>
+<p class="para block">Items found on the <span class="guimenu">Format</span> will be very application-specific, but some common items are listed in the table below.</p>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-13</span> </span>Format menu items</span></div>
+<table summary="Format menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>tyle...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the style attributes of the selected text or objects either individually or to a named, predefined style.  Open a dialog allowing the user to set attributes such as bold, italic, size and spacing individually, and to create their own named styles where applicable.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>ont...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the font properties of the selected text or objects.  Open a dialog allowing the user to choose font, size, style, color, or whatever other attributes are applicable.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>aragraph...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the properties of the selected paragraph.  Open a dialog allowing the user to choose style, line spacing, tabulation, or whatever other attributes are applicable.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">B</span>old</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">B</span></span></td>
+<td style="text-align: left;vertical-align: top;">Toggles the boldness of the current text selection on or off.  If some of the selection is currently bold and some is not, this command should bolden the selected text.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">I</span>talic</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">I</span></span></td>
+<td style="text-align: left;vertical-align: top;">Toggles the italicisation of the current text selection on or off.  If some of the selection is currently italicised and some is not, this command should italicise the selected text.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">U</span>nderline</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">U</span></span></td>
+<td style="text-align: left;vertical-align: top;">Toggles underlining of the current text selection.  If some of the selection is currently underlined and some is not, this command should underline the selected text.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>ells...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the properties of the selected table cells.  Open a dialog allowing the user to choose alignment, borders, shading, text style, number format, or whatever other attributes are applicable.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">L</span>ist...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the properties of the selected list, or turns the selected paragraphs into a list if they are not already formatted as such.  Open a dialog allowing the user to choose number or bullet style, spacing, tabulation, or whatever other attributes are applicable.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">Laye<span class="accel">r</span>...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the properties of all or selected layers of a multi-layered document.  Open a dialog allowing the user to choose name, size, visibility, opacity, z-ordering, or whatever other attributes are applicable.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem">P<span class="accel">a</span>ge...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Sets the properties of all or selected pages of the document.  Open a dialog allowing the user to choose paper size, orientation, columns, margins, or whatever other attributes are applicable.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-bookmarks"><!--menu-standard-bookmarks--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.6. </span>Bookmarks</span></h2></div>
+<p class="para block block-first">Provide a <span class="guimenu">Bookmarks</span> menu in any application that allows the user to browse files and folders, help documents, web pages or any other large information space.</p>
+<div class="admonition block note block-indent"><div class="note-inner">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Icons</span></div>
+<p class="para block block-first">Show icons for bookmark entries on the Bookmarks menu that indicate the type of the bookmark, even if the user has globally turned off icons for other menu items on the desktop.</p>
+</div></div>
+<div class=" block figure block-indent">
+<a name="generic-bookmarks-menu"><!--generic-bookmarks-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-15</span> </span>A generic Bookmarks menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-bookmarks.png" width="190"></div>
+	</div>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-14</span> </span>Bookmark menu items</span></div>
+<table summary="Bookmark menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">A</span>dd Bookmark</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">D</span></span></td>
+<td style="text-align: left;vertical-align: top;">Adds a bookmark for the current document to the default bookmark list.  Do not pop up a dialog asking for a title or location for the bookmark, instead choose sensible defaults (such as the document's title or filename as the bookmark name) and allow the user to change them later using the <span class="guimenuitem">Edit Bookmarks</span> feature.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">E</span>dit Bookmarks</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">B</span></span></td>
+<td style="text-align: left;vertical-align: top;">Allows the user to edit the application's bookmark list.  Open a window in which the user can arrange bookmarks into a hierarchy, move, copy, and delete bookmarks, and change their properties.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="emphasis">Bookmark List</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">The user's current list of bookmarks for the application.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-go"><!--menu-standard-go--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.7. </span>Go</span></h2></div>
+<p class="para block block-first">A <span class="guimenu">Go</span> menu provides commands for quickly navigating around a document or collection of documents, or an information space such as a directory structure or the web.</p>
+<p class="para block">The contents of the menu will vary depending on the type of application.  Different standard menus are presented here for browser-based and document-based applications , but your application may require a combination of both.</p>
+<div class=" block figure block-indent">
+<a name="generic-browser-go-menu"><!--generic-browser-go-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-16</span> </span>A generic Go menu for a browser application</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-go-browser.png" width="178"></div>
+	</div>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-15</span> </span>Go menu items for a browser application</span></div>
+<table summary="Go menu items for a browser application" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">B</span>ack</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Left</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the previous document in the browser's history list.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>orward</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Right</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the next document in the browser's history list.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">U</span>p</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Up</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the current document's (or folder's) parent document (or folder).  For a document browser, such as an online help viewer, this usually means navigating to the enclosing sub-section, section, chapter or contents page.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">H</span>ome</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Alt</span>+<span class="keycap">Home</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to a starting page defined by the user or the application.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">L</span>ocation...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">L</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to a user-specified URI.  Open a dialog into which the user can type a suitable URI, or select one from a list where applicable (for example, a file selection dialog for applications that can handle file:// URIs).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=" block figure block-indent">
+<a name="generic-document-go-menu"><!--generic-document-go-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-17</span> </span>A generic Go menu for document-based applications</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-go-document.png" width="206"></div>
+	</div>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-16</span> </span>Go menu items for a document-based application</span></div>
+<table summary="Go menu items for a document-based application" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">P</span>revious Page</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycap">PageUp</span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the previous page in the document.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">N</span>ext Page</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycap">PageDown</span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the next page in the document.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">G</span>o to Page...</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Navigates to a user-specified page number.  Open a dialog into which the user can type a page number.
+			<span class="para">Text-based applications may also include a <span class="guimenuitem">Go  to Line...</span> menu item, which allows the user to jump to a specified line number.</span>
+</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">F</span>irst Page</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">Home</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the first page in the document.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">L</span>ast Page</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycombo"><span class="keycap">Ctrl</span>+<span class="keycap">End</span></span></td>
+<td style="text-align: left;vertical-align: top;">Navigates to the last page in the document.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect2">
+<a name="application-windows-menu"><!--application-windows-menu--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.8. </span>Windows</span></h2></div>
+<p class="para block block-first">The Windows menu contains commands that apply to all of the application's open windows.  Only use a Windows menu in <a class="link" href="windows-primary.html#mdi" title="Multiple Document Interface (MDI)">multiple document interface</a> (MDI) applications.</p>
+<div class="admonition block note block-indent"><div class="note-inner">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>MDI Applications</span></div>
+<p class="para block block-first">The use of MDI is discouraged, as they have a number of inherent usability problems.</p>
+</div></div>
+<p class="para block">You may also label this menu <span class="guimenu"><span class="accel">D</span>ocuments</span>, <span class="guimenu"><span class="accel">B</span>uffers</span>, or similar according to the type of document handled by your application.</p>
+<p class="para block">The last items on this menu are a numbered list of the application's primary windows, for example <span class="guimenuitem"><span class="accel">1</span>shoppinglist.abw</span>.  Selecting one of these items raises the corresponding window.</p>
+<div class=" block figure block-indent">
+<a name="generic-windows-menu"><!--generic-windows-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-18</span> </span>A generic Windows menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-windows.png" width="151"></div>
+	</div>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-17</span> </span>Windows menu items</span></div>
+<table summary="Windows menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">S</span>ave All</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Saves all open documents.  If any documents have no current filename, prompt for a filename for each one in turn using the standard Save dialog.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>lose All</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Closes all open documents.  If there are any unsaved changes in any documents, post a <a class="link" href="windows-alert.html#alerts-confirmation" title="Confirmation Alerts">confirmation alert</a> for each one in turn.</td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">
+<span class="guimenuitem"><span class="accel">1</span>. <span class="replaceable">first open window title</span></span>
+			<p class="para block"><span class="guimenuitem"><span class="accel">2</span>. <span class="replaceable">second open window title</span></span></p>
+			<p class="para block">etc.</p>
+</td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Raises the corresponding window to the top of the window stack.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division sect2">
+<a name="menu-standard-help"><!--menu-standard-help--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4.9. </span>Help</span></h2></div>
+<p class="para block block-first">The <span class="guimenu">Help</span> menu provides access to all online documentation for your application.  This includes both the user guide, and the <span class="guimenuitem">About</span> window which includes a brief description of your application's functionality.</p>
+<div class=" block figure block-indent">
+<a name="generic-help-menu"><!--generic-help-menu--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 4-19</span> </span>A generic Help menu</span></div>
+<div class="figure-inner">
+	  
+	  <div class="mediaobject"><img src="images/menus-help.png" width="118"></div>
+	</div>
+</div>
+<div class="table block block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 4-18</span> </span>Help menu items</span></div>
+<table summary="Help menu items" style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Label</th>
+<th style="text-align: left;" class="td-colsep">Shortcut</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">C</span>ontents</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="keycap">F1</span></td>
+<td style="text-align: left;vertical-align: top;">Opens the default help browser on the contents page for the application.</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;" class="td-colsep"><span class="guimenuitem"><span class="accel">A</span>bout</span></td>
+<td style="text-align: left;vertical-align: top;" class="td-colsep">None</td>
+<td style="text-align: left;vertical-align: top;">Opens the About dialog for the application.  Use the standard dialog provided by the GNOME libraries, which contains the name and version number of the application, a short description of the application's functionality, author contact details, copyright message and a pointer to the licence under which the application is made available.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="menus-design.html" title="Designing a Menu">Designing a Menu</a></td>
+<td class="navbar-next"><a class="navbar-next" href="toolbars.html" title="Toolbars">Toolbars</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a><div class="autotoc"><ul>
+<li><a class="xref" href="whatsnew.html" title="What's new?">What's new?</a></li>
+<li><a class="xref" href="intro.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="principles.html" title="Usability Principles">Usability Principles</a></li>
+<li><a class="xref" href="desktop-integration.html" title="Desktop Integration">Desktop Integration</a></li>
+<li><a class="xref" href="windows.html" title="Windows">Windows</a></li>
+<li>
+<a class="xref" href="menus.html" title="Menus">Menus</a><div class="autotoc"><ul>
+<li><a class="xref" href="menus-menubar.html" title="The Menubar">The Menubar</a></li>
+<li><a class="xref" href="menus-types.html" title="Types of Menu">Types of Menu</a></li>
+<li><a class="xref" href="menus-design.html" title="Designing a Menu">Designing a Menu</a></li>
+<li>Standard Menus</li>
+</ul></div>
+</li>
+<li><a class="xref" href="toolbars.html" title="Toolbars">Toolbars</a></li>
+<li><a class="xref" href="controls.html" title="Controls">Controls</a></li>
+<li><a class="xref" href="feedback.html" title="Feedback">Feedback</a></li>
+<li><a class="xref" href="design.html" title="Visual Design">Visual Design</a></li>
+<li><a class="xref" href="icons.html" title="Icons">Icons</a></li>
+<li><a class="xref" href="input.html" title="User Input">User Input</a></li>
+<li><a class="xref" href="language.html" title="Language">Language</a></li>
+<li><a class="xref" href="reality-checks.html" title="Checklists">Checklists</a></li>
+<li><a class="xref" href="credits.html" title="Credit">Credit</a></li>
+<li><a class="xref" href="bibliography.html" title="Bibliography">Bibliography</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://bugzilla.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://git.gnome.org/browse/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://identi.ca/gnome/">Identi.ca</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="/languages" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="/js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Primary Windows</title>
+<link rel="previous" href="windows-properties.html" title="Parts of Windows and System Interaction">
+<link rel="next" href="windows-utility.html" title="Utility Windows">
+<link rel="top" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("admon-caution.png"); }
+div.important-inner { background-image: url("admon-important.png"); }
+div.note-inner { background-image: url("admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("admon-bug.png"); }
+div.tip-inner { background-image: url("admon-tip.png"); }
+div.warning-inner { background-image: url("admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<script type="text/javascript" src="/js/jquery.js"></script>
+</head>
+<body>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="windows-primary"><!--windows-primary--></a><div class="header"><h1 class="sect1 title"><span class="title">Primary Windows</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="windows.html" title="Windows">Windows</a></li>
+</ul>
+<p class="para block block-first">A primary window usually presents a view of the user's data,
+    such as a text document in a word processor application, an image in a
+    drawing program, or calculations in a calculator or spreadsheet
+    application. It may also be a view of something more abstract, like a
+    game. A single instance of an application may have more than one primary
+    window, and more than one kind of primary window.</p>
+<p class="para block">A primary window is always shown on the panel window list.</p>
+<div class=" block figure block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-2</span> </span>A typical primary window (gedit)</span></div>
+<div class="figure-inner">
+      
+
+      <div class="mediaobject"><img src="images/windows-primary.png" width="397"></div>
+    </div>
+</div>
+<p class="para block">A primary application window normally has a border, a menubar and a
+    statusbar, and may also contain one or more toolbars.</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">3.2.1. </span><a class="xref" href="windows-primary.html#primary-window-titles" title="Title">Title</a>
+</li>
+<li>
+<span class="label">3.2.2. </span><a class="xref" href="windows-primary.html#primary-window-commands" title="Window Commands">Window Commands</a>
+</li>
+<li>
+<span class="label">3.2.3. </span><a class="xref" href="windows-primary.html#document-interface-types" title="Relation between Documents and Windows">Relation between Documents and Windows</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="primary-window-titles"><!--primary-window-titles--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.2.1. </span>Title</span></h2></div>
+<p class="para block block-first">The most important element of a document-based application's 
+	      window title is the name of the open document.  For other
+	      applications, it usually the name of the application.
+      </p>
+<div class="block list itemizedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Guidelines</span></div>
+<ul class="itemizedlist">
+<li class="li-first">
+<p class="para block block-first">Use <span class="replaceable">Filename</span>
+	as the window title for document-based applications. 
+	Do not use the full pathname, as
+	the filename alone is easier to distinguish amongst
+	other open window titles, for example on the window list.</p>
+      	<div class=" block example block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Example 3-1</span> </span>Using document names as window titles</span></div>
+<div class="example-inner">
+        
+
+        <div class="table block block-indent"><table style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Application</th>
+<th style="text-align: left;">Example window title</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">AbiWord</td>
+<td style="text-align: left;">My Report.abw</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Evolution</td>
+<td style="text-align: left;">Inbox</td>
+</tr>
+<tr>
+<td style="text-align: left;" class="td-colsep">Music player</td>
+<td style="text-align: left;">U2 - Better Than the Real Thing</td>
+</tr>
+</tbody>
+</table></div>
+      	</div>
+</div>
+	<p class="para block">If the
+      	pathname is important, for example the user has opened two documents
+      	with the same name from different directories in the same application,
+      	show the full pathname in the statusbar.</p>
+	</li>
+<li>
+<p class="para block block-first">Before a new document has been saved for the first time, set
+	the window title to <span class="replaceable">Unsaved &lt;document type&gt;</span>.
+	For example, 	
+	<span class="replaceable">Unsaved Drawing</span>, 
+	<span class="replaceable">Unsaved Spreadsheet</span>, or the more
+	generic <span class="replaceable">Unsaved Document</span>.</p>
+	</li>
+<li><p class="para block block-first">When a document has pending changes, insert an asterisk 
+      (*) at the beginning of the window title.
+      For example, <span class="replaceable">*Unsaved Drawing</span>,
+      <span class="replaceable">*AnnualReport</span>.</p></li>
+<li>
+<p class="para block block-first">For non-document-based applications, use 
+		<span class="replaceable">Application Name</span>
+      		as the window title.</p>
+
+      	<div class=" block example block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Example 3-2</span> </span>Using application names as window titles</span></div>
+<div class="example-inner">
+        
+
+        <div class="table block block-indent"><table style="border: solid 1px;">
+<thead><tr>
+<th style="text-align: left;" class="td-colsep">Application</th>
+<th style="text-align: left;">Window title</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: left;" class="td-colsep">Dictionary</td>
+<td style="text-align: left;">Dictionary</td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;" class="td-colsep">Calculator</td>
+<td style="text-align: left;">Calculator</td>
+</tr>
+</tbody>
+</table></div>
+      </div>
+</div>
+      </li>
+<li><p class="para block block-first">Do not place version numbers, company names, or other information
+      that is of no immediate use to the user in the window title. These
+      consume space, making titles in limited spaces such as the system window
+      list less useful, and add more text the user has to scan to find useful
+      information. In a "beta" product, where version numbers are
+      critical for bug information, placing version numbers can be useful, but
+      remove them from stable releases. Place version information in the about
+      box instead.</p></li>
+</ul>
+</div>
+<p class="para block">While document names are most pertinent to users, we understand
+      that application developers may want to increase recognition of their
+      application. If you plan to include your application's name in the
+      title of a primary window, use the following format:
+      <span class="replaceable">Document Name</span> - <span class="replaceable">Application Name</span>.
+      This will ensure that the document name appears in limited space
+      situations such as the system window list.</p>
+<div class="admonition block warning block-indent"><div class="warning-inner"><p class="para block block-first">Including the application name in the title of a document-based application is <span class="emphasis emphasis-bold">not</span> recommended.</p></div></div>
+<div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">Think about naming windows in the context of the panel window list. On a typical screen with a relatively small number of windows open, a window will have 20-30 characters of text and an icon. Consider which text will provide the most immediately obvious clues to a user looking for a particular window.</p></div></div>
+</div>
+<div class="division sect2">
+<a name="primary-window-commands"><!--primary-window-commands--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.2.2. </span>Window Commands</span></h2></div>
+<p class="para block block-first">Close, Maximize/Restore, Minimize, Roll-up/Unroll</p>
+</div>
+<div class="division sect2">
+<a name="document-interface-types"><!--document-interface-types--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">3.2.3. </span>Relation between Documents and Windows</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">3.2.3.1. </span><a class="xref" href="windows-primary.html#sdi" title="Single Document Interface (SDI)">Single Document Interface (SDI)</a>
+</li>
+<li>
+<span class="label">3.2.3.2. </span><a class="xref" href="windows-primary.html#mdi" title="Multiple Document Interface (MDI)">Multiple Document Interface (MDI)</a>
+</li>
+<li>
+<span class="label">3.2.3.3. </span><a class="xref" href="windows-primary.html#csdi" title="Controlled Single Document Interface (CSDI)">Controlled Single Document Interface (CSDI)</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="sdi"><!--sdi--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">3.2.3.1. </span>Single Document Interface (SDI)</span></h3></div>
+<p class="para block block-first">A single document interface places each document in its own
+        primary window. Toolboxes and other utility windows may be shared
+        between multiple SDI documents, but closing them should have no effect
+        on the document windows. Use SDI for your GNOME application unless
+        there is a compelling reason not to.</p>
+<div class=" block figure block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-3</span> </span>A typical SDI application (Eye of GNOME)</span></div>
+<div class="figure-inner">
+          
+
+          <div class="mediaobject"><img src="images/windows-sdi.png" width="268"></div>
+        </div>
+</div>
+</div>
+<div class="division sect3">
+<a name="mdi"><!--mdi--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">3.2.3.2. </span>Multiple Document Interface (MDI)</span></h3></div>
+<p class="para block block-first">A multiple document interface presents a paned, tabbed or
+        similar presentation of two documents
+        within a single window.</p>
+<div class=" block figure block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 3-4</span> </span>A typical MDI application (gedit) showing three open
+          documents on tabbed pages</span></div>
+<div class="figure-inner">
+          
+
+          <div class="mediaobject"><img src="images/windows-mdi.png" width="372"></div>
+        </div>
+</div>
+<p class="para block">MDI has several inherent usability problems, so its use is
+        discouraged in applications. It is better to open each document in a
+        new primary window, with its own menubar, toolbars and statusbar, or
+        allow multiple instances of your application to be run simultaneously.
+        In either case, this leaves it for the window manager (acting on the
+        user's preferences) rather than your application to decide how to
+        group and present document windows from the same application.</p>
+</div>
+<div class="division sect3">
+<a name="csdi"><!--csdi--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">3.2.3.3. </span>Controlled Single Document Interface (CSDI)</span></h3></div>
+<p class="para block block-first">In a typical SDI application, document windows are treated as
+        primary. For example, when all document windows have been closed, the 
+        application (including utility windows) exits as well. In CSDI a utility
+        window is treated as the primary window. For example, closing this
+        utility window will close all document windows and exit the application.</p>
+<div class="admonition block warning block-indent"><div class="warning-inner"><p class="para block block-first">Using CSDI is <span class="emphasis emphasis-bold">not</span> recommended</p></div></div>
+<p class="para block">CSDI is sometimes used because document windows might be too
+        small to have menu bars. Typically this is not the normal use case for the
+        application, but does represent a significant minority use case. For
+        example, an image editor being used to edit small web page elements will
+        often result in very small document windows that cannot accomodate
+        a title bar.</p>
+<p class="para block">A better way to address this problem is to allow menu bars to "collapse"
+        into an overflow button, in much the same way toolbars operate when the window
+        shrinks to below the toolbar width. This allows for small windows, but also
+        provides an opportunity for people to figure out where their menus have gone.</p>
+<div class="admonition block tip block-indent"><div class="tip-inner"><p class="para block block-first">Note that if very small documents are the <span class="emphasis">primary</span> use 
+        case for your application, you should consider finding a means to avoid windows
+        altogether. Windows are not an effective interface for dealing with large
+        numbers of small items. Consider looking for a fixed/automated layout system
+        for presenting the "documents". Also consider if the "documents" will be primarily
+        used in a higher level grouping, in which case that grouping could become the
+        document instead.</p></div></div>
+</div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="windows-properties.html" title="Parts of Windows and System Interaction">Parts of Windows and System Interaction</a></td>
+<td class="navbar-next"><a class="navbar-next" href="windows-utility.html" title="Utility Windows">Utility Windows</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html" title="GNOME Human Interface Guidelines 2.2.1">GNOME Human Interface Guidelines 2.2.1</a><div class="autotoc"><ul>
+<li><a class="xref" href="whatsnew.html" title="What's new?">What's new?</a></li>
+<li><a class="xref" href="intro.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="principles.html" title="Usability Principles">Usability Principles</a></li>
+<li><a class="xref" href="desktop-integration.html" title="Desktop Integration">Desktop Integration</a></li>
+<li>
+<a class="xref" href="windows.html" title="Windows">Windows</a><div class="autotoc"><ul>
+<li><a class="xref" href="windows-properties.html" title="Parts of Windows and System Interaction">Parts of Windows and System Interaction</a></li>
+<li>Primary Windows</li>
+<li><a class="xref" href="windows-utility.html" title="Utility Windows">Utility Windows</a></li>
+<li><a class="xref" href="windows-alert.html" title="Alerts">Alerts</a></li>
+<li><a class="xref" href="windows-progress.html" title="Progress Windows">Progress Windows</a></li>
+<li><a class="xref" href="windows-dialog.html" title="Dialogs">Dialogs</a></li>
+<li><a class="xref" href="windows-assistant.html" title="Assistants">Assistants</a></li>
+</ul></div>
+</li>
+<li><a class="xref" href="menus.html" title="Menus">Menus</a></li>
+<li><a class="xref" href="toolbars.html" title="Toolbars">Toolbars</a></li>
+<li><a class="xref" href="controls.html" title="Controls">Controls</a></li>
+<li><a class="xref" href="feedback.html" title="Feedback">Feedback</a></li>
+<li><a class="xref" href="design.html" title="Visual Design">Visual Design</a></li>
+<li><a class="xref" href="icons.html" title="Icons">Icons</a></li>
+<li><a class="xref" href="input.html" title="User Input">User Input</a></li>
+<li><a class="xref" href="language.html" title="Language">Language</a></li>
+<li><a class="xref" href="reality-checks.html" title="Checklists">Checklists</a></li>
+<li><a class="xref" href="credits.html" title="Credit">Credit</a></li>
+<li><a class="xref" href="bibliography.html" title="Bibliography">Bibliography</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://bugzilla.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://git.gnome.org/browse/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://identi.ca/gnome/">Identi.ca</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="/languages" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="/js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>
